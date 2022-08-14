@@ -3,20 +3,28 @@
 
 .navbar{
     width: 100%;
-    height: 4.5rem;
     position: sticky;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    flex-wrap: wrap;
     background: @A-color-prima;
     color: @blanco;
     font-size: @font-size-base;
 
     &__logo{
-        width: 200px;
-        background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+        img{
+            width: 150px;
+        }
+        h3{
+            margin-left: 1rem;
+            color: @blanco;
+        }
+
     }
     &__redes{
         
