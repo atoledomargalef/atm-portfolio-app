@@ -9,6 +9,12 @@ import { MainComponent } from './components/main/main.component';
 import { BotonAComponent } from './components/buttons/boton-a/boton-a.component';
 import { ProfileComponent } from './components/header/profile/profile.component';
 import { BotonSesionComponent } from './components/buttons/boton-sesion/boton-sesion.component';
+import { LoginComponent } from './components/menu/login/login.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AboutComponent } from './components/header/about/about.component';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +24,17 @@ import { BotonSesionComponent } from './components/buttons/boton-sesion/boton-se
     MainComponent,
     BotonAComponent,
     ProfileComponent,
-    BotonSesionComponent
+    BotonSesionComponent,
+    LoginComponent,
+    PortfolioComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-boton-a',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boton-a.component.less']
 })
 export class BotonAComponent implements OnInit {
+
+@Input() text="";
 
   constructor() { }
 

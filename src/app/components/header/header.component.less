@@ -12,10 +12,9 @@
     &__portada{
         width: auto;
         height: 400px;
+        background: @A-blend;
 
         border-radius: 35px 35px 0 0 ;
-
-        background: @A-blend;
         border: 1pt solid @A-Color-secun;
 
     }
@@ -23,14 +22,24 @@
     &__info {
 
         width: auto;
-
         padding: 2rem;
-
-        border-radius: 0 0 35px 35px ;
-
         background: @blanco;
+        border-radius: 0 0 35px 35px ;
         border: 1pt solid @A-Color-secun;
+        
+        &__cont-prof-about{
+            display: flex;
 
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+        &__botonera{
+            margin: 1rem 0 0 0 ;
+            display: flex;
+
+        }
+    
     }
 
 
