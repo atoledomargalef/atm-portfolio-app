@@ -14,8 +14,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './components/header/about/about.component';
-
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { PersonalInfoComponent } from './components/header/personal-info/personal-info.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,13 +27,17 @@ import { AboutComponent } from './components/header/about/about.component';
     BotonSesionComponent,
     LoginComponent,
     PortfolioComponent,
-    AboutComponent
+    AboutComponent,
+    PersonalInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule
+    
+
 
   ],
   providers: [],

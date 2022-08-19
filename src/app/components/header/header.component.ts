@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosPersonaService } from 'src/app/services/datos-persona.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,11 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+
+
+
+    
   }
 
 }

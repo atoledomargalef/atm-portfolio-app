@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosPersonaService } from 'src/app/services/datos-persona.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private persoServ: DatosPersonaService) { }
 
-  ngOnInit(): void {
+
+  data: any = {}
+
+  ngOnInit(){
+  
+    this.persoServ.obtener().subscribe((res:any) => {
+
+      this.data=res[0]
+  
+    });
   }
 
 }
