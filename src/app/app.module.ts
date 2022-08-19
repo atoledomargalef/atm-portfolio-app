@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './components/header/about/about.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { PersonalInfoComponent } from './components/header/personal-info/personal-info.component';
+import { ExperienciaComponent } from './components/main/experiencia/experiencia.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { PersonalInfoComponent } from './components/header/personal-info/persona
     LoginComponent,
     PortfolioComponent,
     AboutComponent,
-    PersonalInfoComponent
+    PersonalInfoComponent,
+    ExperienciaComponent
   ],
   imports: [
     BrowserModule,

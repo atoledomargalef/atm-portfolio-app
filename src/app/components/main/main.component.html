@@ -1,8 +1,11 @@
 <div class="main">
     <div class="main__section">
         <h1>Experiencia</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quas aspernatur illum, vitae itaque animi adipisci quaerat obcaecati voluptatibus iste tempore nobis ullam! Ipsam, nisi exercitationem expedita reiciendis asperiores cupiditate.</p>
-
+        <app-experiencia
+        *ngFor="let exp of exps"
+        [exp] = "exp"
+        
+        ></app-experiencia>
     </div>
     <div class="main__section">
         <h1>Formación</h1>
