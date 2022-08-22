@@ -1,0 +1,65 @@
+@import "../../../styles.less";
+
+.m-s-e__contenedor{
+
+    font-size: (@font-size-base /1.1);
+
+
+    &_form{
+        display: flex;
+        color: @A-color-prima;
+        flex-direction: column;
+         label{
+            margin-bottom: .3rem;
+        }
+        input, textarea, select{
+            font-family: 'Mulish', sans-serif;
+            padding:.5rem;
+            margin-bottom: .5rem;
+            border-radius: 10px;
+            
+            border:2pt solid transparent;
+            transition: all .5s;
+
+            &:focus{
+                border:2pt solid @blanco;
+                outline: none;
+                box-shadow: 0px 1px 10px 2px @A-Color-secun;
+            }
+        }
+        
+        app-boton-a{
+            align-self: flex-end;
+            
+        }
+        &-a{
+
+            display: flex;
+            flex-direction: row;
+
+        }
+        &-b{
+
+            display: flex;
+            min-width: 250px;
+            flex-direction: column;
+            margin-right: 1rem;
+        }
+        &-c{
+            display: flex;
+            min-width: 250px;
+            flex-direction: column;
+            margin-right: 1rem;
+        }
+    }
+
+}
+
+input[type=checkbox]{
+
+    margin-right: .5rem;
+}
+.inline{
+    display: inline-block;
+    font-size: .8rem;
+}

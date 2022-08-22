@@ -1,0 +1,26 @@
+<div class="main__section__view">
+
+        
+        <h1>Proyectos</h1>
+        <div class="proyList"
+        cdkDropList
+            (cdkDropListDropped)="drop($event)"
+        >
+
+                <app-proy-item
+                *ngFor="let proy of proys"
+                [proy] = "proy"
+                
+                (onDeleteProy)="borrarProy(proy)"
+                
+                cdkDrag> 
+        
+                </app-proy-item>
+        </div>
+</div>
+
+<app-pro-edit 
+        class="main__section__edit"
+        (onNewProy)="newProy($event)"
+>
+</app-pro-edit>

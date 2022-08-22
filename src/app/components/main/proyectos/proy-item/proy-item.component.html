@@ -1,0 +1,22 @@
+<div class="proy-cont">
+    <div class="proy-cont_body">
+        <div class="proy-cont_body_info">
+
+            <h3 class="">{{proy.titulo}}</h3>
+            <p class="thin">{{proy.habilidades}}</p>
+        </div>
+        <p class="proy-cont_body-text">{{proy.descrip_proj}}</p>
+        <div class="proy-cont_body_boton">
+            <app-boton-a text="Ver Proyecto"></app-boton-a>
+        </div>
+    </div>
+    
+    <div class="proy-cont_img">
+        <figure class="proy-cont_img-fig">
+            <img src="{{proy.img_proyecto}}" alt="{{proy.img_proyecto}}">
+        </figure>
+    </div>
+    <div class="proy-cont__delete">
+        <p> <a (click)="onDelete(proy)" href="#">X</a></p>
+    </div>
+</div>

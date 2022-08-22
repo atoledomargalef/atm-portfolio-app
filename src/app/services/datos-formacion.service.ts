@@ -13,24 +13,28 @@ const httpOptions = {
     'Access-Control-Allow-Credentials': 'true'
   })
 }
-
 @Injectable({
   providedIn: 'root'
 })
-export class DatosPersonaService {
+export class DatosFormacionService {
 
-rutaApi = 'http://localhost:8080/ver/personas'
+  
+rutaApiFor = 'http://localhost:8080/ver/formacion';
+rutaApiForEdit = 'http://localhost:8080//formacion';
+rutaApiForDelete = 'http://localhost:8080/ver/formacion';
 
-data:any = []
+  constructor(private http:HttpClient) { }
 
-  constructor( private http:HttpClient) { }
 
-  obtener(){
-    return this.http.get<Persona[]>( this.rutaApi)
+
+
+
+  obtenerFor(){
+    return this.http.get<Formacion[]>( this.rutaApiFor)
+  }
+  editarFor(){
+    return this.http.get<Formacion[]>( this.rutaApiFor)
   }
 
-
-
-
-
+  
 }

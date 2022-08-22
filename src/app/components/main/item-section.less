@@ -1,0 +1,110 @@
+@import "../../../styles.less";
+
+.exp__contenedor {
+
+  display: flex;
+
+  margin: 1.5rem 0 2rem;
+
+
+  &__header {
+
+    width: 30%;
+
+    &-titulo {
+      color: @Texto;
+    }
+
+    &-logo {
+      font-style: italic;
+    }
+
+    &-refe {}
+  }
+
+  &__data {
+
+    &-fecha {}
+
+    &-descrip {}
+  }
+
+
+
+}
+
+.proy-cont {
+  display: flex;
+  background: @blanco;
+
+  margin: 1.5rem 0 2rem;
+
+  &_body {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+
+    &_info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &-T {}
+    }
+
+    &_boton {
+
+      margin-top: 1rem;
+
+    }
+  }
+
+  &_img {
+
+    display: flex;
+    min-width: 200px;
+    min-height: 200px;
+    border: 1pt solid @A-Color-secun;
+
+    &-fig {}
+
+  }
+}
+
+
+.hab__cont {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &-circle {
+      border: 7pt solid @A-Color-secun;
+      width: 150px;
+      height: 150px;
+      border-radius: 100px;
+      margin: 2rem;
+    }
+
+    &-text {
+      position: absolute;
+
+      &-sub {
+        position: absolute;
+        font-size: 1rem;
+        top: 7.5rem;
+      }
+    }
+
+  }
+
+
+
+}

@@ -1,25 +1,52 @@
 <div class="main">
     <div class="main__section">
-        <h1>Experiencia</h1>
-        <app-experiencia
-        *ngFor="let exp of exps"
-        [exp] = "exp"
+        <div class="main__section__view">
+
+            <h1>Experiencia</h1>
+            <div class="drag"
+            cdkDropList
+            (cdkDropListDropped)="drop($event)"
+            >
+
+                <app-experiencia
+                *ngFor="let exp of exps"
+                [exp] = "exp"
+                cdkDrag
+                ></app-experiencia>
+            </div>
+        </div>
+        <app-exp-edit class="main__section__edit"></app-exp-edit>
+    </div>
+    <div class="main__section">
+        <div class="main__section__view">
+
+            <h1>Formación</h1>
+            <app-formacion
+            *ngFor="let form of forms"
+                [form] = "form"
+                cdkDrag
+            
+            ></app-formacion>
+            
+        </div>
+        <app-for-edit  class="main__section__edit"></app-for-edit>
+
+    </div>
+    <div class="main__section">
+
+        <div class="main__section__view">
+            <h1>Habilidades</h1>
+            <app-habilidades></app-habilidades>
+        </div>
         
-        ></app-experiencia>
+        <app-hab-edit class="main__section__edit"></app-hab-edit>
     </div>
-    <div class="main__section">
-        <h1>Formación</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quas aspernatur illum, vitae itaque animi adipisci quaerat obcaecati voluptatibus iste tempore nobis ullam! Ipsam, nisi exercitationem expedita reiciendis asperiores cupiditate.</p>
 
-    </div>
-    <div class="main__section">
-        <h1>Habilidades</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quas aspernatur illum, vitae itaque animi adipisci quaerat obcaecati voluptatibus iste tempore nobis ullam! Ipsam, nisi exercitationem expedita reiciendis asperiores cupiditate.</p>
 
-    </div>
-    <div class="main__section">
-        <h1>Proyectos</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quas aspernatur illum, vitae itaque animi adipisci quaerat obcaecati voluptatibus iste tempore nobis ullam! Ipsam, nisi exercitationem expedita reiciendis asperiores cupiditate.</p>
+  
+            <app-proyectos class="main__section"></app-proyectos>
 
-    </div>
+
+        
+
 </div>

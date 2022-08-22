@@ -10,13 +10,31 @@
     margin-top: -1rem;
 
     &__section{
-        width: auto;
-        padding: 2rem;
-        padding-bottom: 6rem;
-        background: @blanco;
-        border-radius: 35px ;
-        border: 1pt solid @A-Color-secun;
-        margin-bottom:-4rem;
+     
+        display: flex;
+        &__view{
+
+            width: 100%;
+            padding: 2rem;
+            padding-bottom: 6rem;
+            background: @blanco;
+            border-radius: 35px ;
+            border: 1pt solid @A-Color-secun;
+            margin-bottom:-4rem;
+            
+
+
+        }
+        &__edit{
+            display: flex;
+            margin: 0 0 1rem 2rem;
+            padding: 2rem;
+            background-color: @A-Color-secun-light;
+            
+            border: 1pt solid @A-Color-secun;
+            
+            border-radius: 35px ;
+        }    
     }
 
 }

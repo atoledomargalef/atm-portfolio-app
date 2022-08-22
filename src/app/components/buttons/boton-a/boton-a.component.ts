@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BotonAComponent implements OnInit {
 
 @Input() text="";
-
+@Input() type="";
   constructor() { }
 
   ngOnInit(): void {
