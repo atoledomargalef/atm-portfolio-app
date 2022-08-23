@@ -1,20 +1,31 @@
 <header class="header">
 
-    <div class="header__portada">
+  <div class="header__portada">
+
+  </div>
+  <div class="header__info">
+    <div class="header__info__cont-prof-about">
+
+      <app-profile></app-profile>
+      <app-about></app-about>
+
+    </div>
+    <app-edit-button style="top:1rem;"></app-edit-button>
+    <div class="header__info__botonera">
         
+    
+
+      <app-boton-a text="Informacion Personal"></app-boton-a>
+      
     </div>
-    <div class="header__info">
-        <div class="header__info__cont-prof-about">
-            <app-profile></app-profile>
-            <app-about></app-about>
-        </div>
-        <div class="header__info__botonera">
-            <app-boton-a text="Informacion Personal"></app-boton-a>
-        </div>
-        <div class="header__pers-info__cont">
-            <app-personal-info></app-personal-info>
-            <app-edit-per></app-edit-per>
-        </div>
+    
+
+    <div class="header__pers-info__cont">
+
+      <app-personal-info> </app-personal-info>
+      <app-edit-per></app-edit-per>
+
     </div>
+  </div>
 
 </header>

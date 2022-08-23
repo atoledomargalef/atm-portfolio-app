@@ -24,10 +24,14 @@ import { ProEditComponent } from './components/main/proyectos/pro-edit/pro-edit.
 import { ProyectosComponent } from './components/main/proyectos/proyectos.component';
 import { HabEditComponent } from './components/main/habilidades/hab-edit/hab-edit.component';
 import { HabilidadesComponent } from './components/main/habilidades/habilidades.component';
-import { EditButtonComponent } from './components/main/edit-button/edit-button.component';
 import { EditPerComponent } from './components/header/personal-info/edit-per/edit-per.component';
 import { ProyItemComponent } from './components/main/proyectos/proy-item/proy-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CloseButtonComponent } from './components/buttons/close-button/close-button.component';
+import { AddButtonComponent } from './components/buttons/add-button/add-button.component';
+import { EditButtonComponent } from './components/buttons/edit-button/edit-button.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -50,9 +54,11 @@ import { ProyItemComponent } from './components/main/proyectos/proy-item/proy-it
     ProyectosComponent,
     HabEditComponent,
     HabilidadesComponent,
-    EditButtonComponent,
     EditPerComponent,
-    ProyItemComponent
+    ProyItemComponent,
+    CloseButtonComponent,
+    AddButtonComponent,
+    EditButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +66,9 @@ import { ProyItemComponent } from './components/main/proyectos/proy-item/proy-it
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    DragDropModule
+    DragDropModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule
     
 
 

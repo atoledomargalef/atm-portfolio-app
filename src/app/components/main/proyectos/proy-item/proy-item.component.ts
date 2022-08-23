@@ -1,5 +1,9 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Proyecto } from 'src/app/proyecto';
+import {faXmark } from '@fortawesome/free-solid-svg-icons';
+import { UiServiceService } from 'src/app/services/ui/ui-service.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-proy-item',
@@ -9,11 +13,24 @@ import { Proyecto } from 'src/app/proyecto';
 export class ProyItemComponent implements OnInit {
 
   proys: Proyecto[] = []
+  faXmark = faXmark;
   
   @Input() proy: Proyecto = this.proys[0];
   @Output() onDeleteProy: EventEmitter<Proyecto> = new EventEmitter();
 
-  constructor() { }
+
+  showEditProy: boolean = false;
+  subscription: Subscription;
+
+
+  constructor(
+    private uiService: UiServiceService
+  ) {
+
+    this.subscription = this.uiService.onToggle()
+                                      .subscribe(value => this.showEditProy = value)
+
+   }
 
   ngOnInit(): void {
   }

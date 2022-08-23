@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Proyecto } from 'src/app/proyecto';
 import { Subscription } from 'rxjs';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { UiServiceService } from 'src/app/services/ui/ui-service.service';
 
 @Component({
   selector: 'app-pro-edit',
@@ -19,13 +21,31 @@ export class ProEditComponent implements OnInit {
   img_proyecto:string = "";
   habilidades:string = "";
   persona_id: number = 6;
+  faXmark = faXmark;
+  
+  
+  showEditProy: boolean = true;
+  subscription: Subscription;
 
-  constructor() { }
+
+  constructor(
+    private uiService: UiServiceService
+  ) {
+
+    this.subscription = this.uiService.onToggle()
+                                      .subscribe(value => this.showEditProy = value)
+
+   }
+  
+
 
   ngOnInit(): void {
   }
 
-
+  toogleEditProy(){
+    this.uiService.toggleEditProy();
+    console.log("click")
+   }
   onSubmit(){
     if(this.descrip_proj.length === 0){
         alert("Please add a text in the Task!!")

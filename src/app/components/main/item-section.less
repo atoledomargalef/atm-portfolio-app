@@ -5,7 +5,19 @@
   display: flex;
 
   margin: 1.5rem 0 2rem;
-
+  padding: 1rem;
+  
+  border: 1pt solid transparent;
+  border-radius: 20px;
+  transition: all .3s;
+  background: @blanco;
+  box-shadow: 0px 5px 30px -5px @A-Color-secun-light;
+  
+  &:hover{
+    border: 1pt solid @A-Color-secun;
+    
+    box-shadow: 0px 5px 30px -5px @A-Color-secun-light;
+  }
 
   &__header {
 
@@ -38,6 +50,20 @@
   background: @blanco;
 
   margin: 1.5rem 0 2rem;
+  border: 1pt solid transparent;
+  border-radius: 20px;
+  transition: all .3s;
+  box-shadow: 0px 5px 30px -5px @A-Color-secun-light;
+
+  padding: 1rem;
+  background: @blanco;
+  &:hover{
+    border: 1pt solid @A-Color-secun;
+    
+
+    box-shadow: 0px 5px 30px -5px @A-Color-secun;
+
+  }
 
   &_body {
     display: flex;
@@ -71,6 +97,15 @@
   }
 }
 
+fa-icon{
+  font-size: 2rem;
+  padding-left: 1rem;
+  
+  &.a{
+    color: rgb(240, 120, 90);
+  }
+
+}
 
 .hab__cont {
 

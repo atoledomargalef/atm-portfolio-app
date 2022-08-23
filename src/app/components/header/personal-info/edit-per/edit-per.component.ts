@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-edit-per',
@@ -9,6 +10,7 @@ export class EditPerComponent implements OnInit {
 
   constructor() { }
 
+  faXmark = faXmark;
   ngOnInit(): void {
   }
 

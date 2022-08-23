@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Proyecto } from 'src/app/proyecto';
 import { ProyectosService } from 'src/app/services/proyectos.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { UiServiceService } from 'src/app/services/ui/ui-service.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-proyectos',
@@ -11,9 +13,10 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 export class ProyectosComponent implements OnInit {
 
   proys: Proyecto[] = [];
+  showEditProy:boolean = false;
+  subscription?: Subscription;
 
-
-  constructor(private proyService : ProyectosService) { }
+  constructor(private proyService : ProyectosService ,private uiService: UiServiceService) { }
 
   ngOnInit(): void {
   
@@ -23,7 +26,10 @@ export class ProyectosComponent implements OnInit {
     })
   }
 
-
+  toogleEditProy(){
+    this.uiService.toggleEditProy();
+    console.log(this.showEditProy)
+   }
 
   borrarProy(proy:Proyecto){
     this.proyService.borrarProy(proy)

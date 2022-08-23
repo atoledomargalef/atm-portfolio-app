@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-exp-edit',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpEditComponent implements OnInit {
 
+  faXmark = faXmark;
   constructor() { }
 
   ngOnInit(): void {

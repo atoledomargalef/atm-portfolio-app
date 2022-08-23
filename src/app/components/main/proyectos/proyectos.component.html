@@ -1,6 +1,11 @@
 <div class="main__section__view">
 
+        <app-add-button></app-add-button>
+        <app-edit-button
+        (btnClick)="toogleEditProy()"
         
+        ></app-edit-button>
+
         <h1>Proyectos</h1>
         <div class="proyList"
         cdkDropList
@@ -22,5 +27,7 @@
 <app-pro-edit 
         class="main__section__edit"
         (onNewProy)="newProy($event)"
+        *ngIf="showEditProy"
 >
+
 </app-pro-edit>
