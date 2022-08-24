@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,12 +7,17 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./add-button.component.less']
 })
 export class AddButtonComponent implements OnInit {
-
+  @Output() btnClickN = new EventEmitter();
 faPlus = faCirclePlus;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+  onClick(){
+  
+    this.btnClickN.emit();
+    console.log("boton add");
 
+  }
 }

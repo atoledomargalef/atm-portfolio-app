@@ -9,13 +9,14 @@ import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
 export class CloseButtonComponent implements OnInit {
   @Output() btnClick = new EventEmitter();
   faXmarkCircle = faXmarkCircle;
+
   constructor() { }
   ngOnInit(): void {
   }
+
   onClick(){
   
     this.btnClick.emit();
-    console.log("boton1");
 
   }
 }

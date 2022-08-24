@@ -32,6 +32,12 @@ import { AddButtonComponent } from './components/buttons/add-button/add-button.c
 import { EditButtonComponent } from './components/buttons/edit-button/edit-button.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProNewComponent } from './components/main/proyectos/pro-new/pro-new.component';
+import { ForNewComponent } from './components/main/formacion/for-new/for-new.component';
+import { ForItemComponent } from './components/main/formacion/for-item/for-item.component';
+import { ExpNewComponent } from './components/main/experiencia/exp-new/exp-new.component';
+import { ExpItemComponent } from './components/main/experiencia/exp-item/exp-item.component';
+import { CloseButtonBComponent } from './components/buttons/close-button-b/close-button-b.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +64,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProyItemComponent,
     CloseButtonComponent,
     AddButtonComponent,
-    EditButtonComponent
+    EditButtonComponent,
+    ProNewComponent,
+    ForNewComponent,
+    ForItemComponent,
+    ExpNewComponent,
+    ExpItemComponent,
+    CloseButtonBComponent
   ],
   imports: [
     BrowserModule,

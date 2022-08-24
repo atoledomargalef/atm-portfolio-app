@@ -8,7 +8,6 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 })
 export class ExpEditComponent implements OnInit {
 
-  faXmark = faXmark;
   constructor() { }
 
   ngOnInit(): void {

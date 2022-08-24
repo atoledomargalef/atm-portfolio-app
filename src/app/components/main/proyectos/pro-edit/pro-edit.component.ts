@@ -25,14 +25,14 @@ export class ProEditComponent implements OnInit {
   
   
   showEditProy: boolean = true;
-  subscription: Subscription;
+  subscription?: Subscription;
 
 
   constructor(
     private uiService: UiServiceService
   ) {
 
-    this.subscription = this.uiService.onToggle()
+    this.subscription = this.uiService.onToogle()
                                       .subscribe(value => this.showEditProy = value)
 
    }
@@ -43,8 +43,7 @@ export class ProEditComponent implements OnInit {
   }
 
   toogleEditProy(){
-    this.uiService.toggleEditProy();
-    console.log("click")
+    this.uiService.toogleEditProy();
    }
   onSubmit(){
     if(this.descrip_proj.length === 0){

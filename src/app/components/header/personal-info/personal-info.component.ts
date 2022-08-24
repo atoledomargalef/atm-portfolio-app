@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { DatosPersonaService } from 'src/app/services/datos-persona.service';
 import { ProfileComponent } from '../profile/profile.component';
 
@@ -11,6 +12,7 @@ export class PersonalInfoComponent implements OnInit {
 
 
 
+  faXmark = faXmark;
   constructor( private persoServ : DatosPersonaService ) {}
 
   dato:any={}

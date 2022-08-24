@@ -1,0 +1,35 @@
+<div class="m-s-e__contenedor">
+    
+  <app-close-button (btnClick)="toogleNewProy()"></app-close-button>
+  
+    <h3>Nuevo Proyecto</h3>
+    <form class="m-s-e__contenedor_form" action="" (ngSubmit)="onSubmit()">
+  
+      <div class="m-s-e__contenedor_form-a">
+  
+        <div class="m-s-e__contenedor_form-b">
+          <label for="">Titulo</label>
+          <input type="text">
+          <label for="">Link al proyecto</label>
+          <input type="text">
+  
+          <label for="">Habilidades</label>
+          <input type="text">
+          <label for="">Imagen del Proyecto</label>
+          <input type="text">
+  
+          <label for="">Descripción</label>
+          <textarea type="text" name="" id="" placeholder="Añade una descripcion del proyecto"
+            >
+  
+                  </textarea>
+  
+        </div>
+  
+      </div>
+  
+      <app-boton-a text="Crear Nuevo" type="submit">
+      </app-boton-a>
+    </form>
+  
+  </div>

@@ -1,6 +1,8 @@
 <div class="main__section__view">
 
-        <app-add-button></app-add-button>
+        <app-add-button
+        (btnClickN)="toogleNewProy()"
+        ></app-add-button>
         <app-edit-button
         (btnClick)="toogleEditProy()"
         
@@ -23,11 +25,18 @@
                 </app-proy-item>
         </div>
 </div>
+<app-pro-new
+class="main__section__edit new"
+(onNewProy)="newProy($event)"
+*ngIf="showNewProy"
 
+>
+
+</app-pro-new>
 <app-pro-edit 
         class="main__section__edit"
         (onNewProy)="newProy($event)"
         *ngIf="showEditProy"
 >
-
 </app-pro-edit>
+

@@ -14,9 +14,18 @@ export class ProyectosComponent implements OnInit {
 
   proys: Proyecto[] = [];
   showEditProy:boolean = false;
+  showNewProy:boolean = false;
   subscription?: Subscription;
+  subscriptionNew?: Subscription;
 
-  constructor(private proyService : ProyectosService ,private uiService: UiServiceService) { }
+  constructor(private proyService : ProyectosService ,private uiService: UiServiceService) {
+
+    this.subscription = this.uiService.onToogle()
+    .subscribe(value => this.showEditProy = value);
+    this.subscriptionNew = this.uiService.onToogleNew()
+    .subscribe(value => this.showNewProy = value);
+
+   }
 
   ngOnInit(): void {
   
@@ -27,8 +36,12 @@ export class ProyectosComponent implements OnInit {
   }
 
   toogleEditProy(){
-    this.uiService.toggleEditProy();
-    console.log(this.showEditProy)
+    this.uiService.toogleEditProy();
+   }
+
+   toogleNewProy(){
+    this.uiService.toogleNewProy();
+    console.log(this.showNewProy)
    }
 
   borrarProy(proy:Proyecto){

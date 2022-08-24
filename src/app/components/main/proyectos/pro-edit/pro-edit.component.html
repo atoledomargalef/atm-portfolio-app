@@ -1,53 +1,34 @@
-<div class="m-s-e__contenedor" 
+<div class="m-s-e__contenedor">
+  <app-close-button (btnClick)="toogleEditProy()"></app-close-button>
 
->
-    <app-close-button 
-    (btnClick)="toogleEditProy()"
-    ></app-close-button>
-    
-    <h3>Editar Proyecto</h3>
-    <form 
-    class="m-s-e__contenedor_form" 
-    action=""
-    (ngSubmit)="onSubmit()"
-    
-    
-    >
-   
-        <div class="m-s-e__contenedor_form-a">
+  <h3>Editar Proyecto</h3>
+  <form class="m-s-e__contenedor_form" action="" (ngSubmit)="onSubmit()">
 
-            <div class="m-s-e__contenedor_form-b">
-                <label for="">Titulo</label>
-                <input type="text">
-                <label for="">Link al proyecto</label>
-                <input type="text">
-                
-                <label for="">Habilidades</label>
-                <input type="text">
-                <label for="">Imagen del Proyecto</label>
-                <input type="text">
-            
-                <label for="">Descripción</label>
-                <textarea 
-                type="text"
-                name="descrip_proj" 
-                id="descrip_proj" 
-                placeholder="Añade una descripcion del proyecto"
-                [(ngModel)]="descrip_proj"
-                
-                
-                >
+    <div class="m-s-e__contenedor_form-a">
+
+      <div class="m-s-e__contenedor_form-b">
+        <label for="">Titulo</label>
+        <input type="text">
+        <label for="">Link al proyecto</label>
+        <input type="text">
+
+        <label for="">Habilidades</label>
+        <input type="text">
+        <label for="">Imagen del Proyecto</label>
+        <input type="text">
+
+        <label for="">Descripción</label>
+        <textarea type="text" name="descrip_proj" id="descrip_proj" placeholder="Añade una descripcion del proyecto"
+          [(ngModel)]="descrip_proj">
 
                 </textarea>
-            
-            </div>
-            
-        </div>
 
-        <app-boton-a 
-        text="Editar"
-        type="submit">
-        </app-boton-a>
-    </form>
+      </div>
+
+    </div>
+
+    <app-boton-a text="Editar" type="submit">
+    </app-boton-a>
+  </form>
 
 </div>

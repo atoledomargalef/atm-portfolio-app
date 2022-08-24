@@ -27,7 +27,7 @@ export class ProyItemComponent implements OnInit {
     private uiService: UiServiceService
   ) {
 
-    this.subscription = this.uiService.onToggle()
+    this.subscription = this.uiService.onToogle()
                                       .subscribe(value => this.showEditProy = value)
 
    }
