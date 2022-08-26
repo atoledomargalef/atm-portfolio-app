@@ -16,6 +16,8 @@ import {
 import {
   UiServiceService
 } from 'src/app/services/ui/ui-service.service';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -25,6 +27,8 @@ import {
 })
 export class ProNewComponent implements OnInit {
   @Output() onNewProy: EventEmitter < Proyecto > = new EventEmitter();
+
+
 
   descrip_proj: string = "";
   titulo: string = "";
@@ -38,9 +42,9 @@ export class ProNewComponent implements OnInit {
   showNewProy: boolean = true;
   subscription ? : Subscription;
 
-
-  constructor(
-    private uiService: UiServiceService
+  constructor(  
+    private uiService: UiServiceService,
+    private http: HttpClient
   ) {
 
     this.subscription = this.uiService.onToogleNew()
@@ -50,35 +54,13 @@ export class ProNewComponent implements OnInit {
 
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+
+
+  }
 
   toogleNewProy() {
     this.uiService.toogleNewProy();
-  }
-  onSubmit() {
-    if (this.descrip_proj.length === 0) {
-      alert("Please add a text in the Task!!")
-      return
-    }
-
-    const {
-      titulo,
-      descrip_proj,
-      link_proj,
-      img_proyecto,
-      habilidades,
-      persona_id
-    } = this
-    const newProy = {
-      titulo,
-      descrip_proj,
-      link_proj,
-      img_proyecto,
-      habilidades,
-      persona_id
-    }
-
-
-    this.onNewProy.emit(newProy);
   }
 }

@@ -1,0 +1,227 @@
+[
+    {
+        "proy":{
+
+            
+            "controls": [
+                {
+                    "name": "titulo",
+                    "label": "Título:",
+                    "value": "",
+                    "placeholder":"Escribe aquí el Titulo del proyecto",
+                    "type": "text",
+                    "validators": {
+                        "required": true,
+                        "maxLength": 255
+                    }
+                },
+                {
+                    "name": "descrip_proj",
+                    "label": "Descripción",
+                    "value": "",
+                    "placeholder":"Añada aqui una descripcion del proyecto",
+                    "type": "text",
+                    "validators": {
+                        "required": true,
+                        "maxLength": 255
+                    }
+                },
+                {
+                    "name": "link_proj",
+                    "label": "Link al Proyecto",
+                    "value": "",
+                    "placeholder":"Añada aqui un link al proyecto",
+                    "type": "text",
+                    "validators": {
+                        "required": true,
+                        "maxLength": 255
+                    }
+
+
+                },
+                {
+                    "name": "habilidades",
+                    "label": "habilidades",
+                    "value": "",
+                    "placeholder":"Habilidades que se usaron en el proyecto",
+                    "type": "text",
+                    "validators": {
+                        "required": true,
+                        "maxLength": 105
+                    }
+
+
+                },
+                {
+                    "name": "img_proyecto",
+                    "label": "Imagen del Proyecto",
+                    "value": "",
+                    "placeholder":"Link a Imagen del Proyecto",
+                    "type": "text",
+                    "validators": {
+                        "required": true,
+                        "maxLength": 255
+                    }
+
+                }
+            ]
+        }, "exp":{
+
+            
+            "controls": [
+                {
+                    "name": "titulo",
+                    "label": "Título:",
+                    "value": "",
+                    "placeholder":"Escribe aquí el Titulo de la Experiencia",
+                    "type": "text",
+                    "validators": {
+                        "required": true,
+                        "maxLength": 255
+                    }
+                },
+                {
+                    "name": "descrip_tareas",
+                    "label": "Descripción",
+                    "value": "",
+                    "placeholder":"Añada aqui una descripcion de la Experiencia",
+                    "type": "text",
+                    "validators": {
+                        "required": true,
+                        "maxLength": 255
+                    }
+                },
+                {
+                    "name": "refe",
+                    "label": "Referencia",
+                    "value": "",
+                    "placeholder":"Añada aqui una Referencia",
+                    "type": "text",
+                    "validators": {
+                        "required": true,
+                        "maxLength": 255
+                    }
+
+
+                },
+                {
+                    "name": "logo_empresa",
+                    "label": "Logo de la Empresa",
+                    "value": "",
+                    "placeholder":"si lo hay",
+                    "type": "text",
+                    "validators": {
+                        "required": true,
+                        "maxLength": 105
+                    }
+
+
+                },
+                {
+                    "name": "fecha_inicio",
+                    "label": "Desde",
+                    "value": "",
+                    "type": "date",
+                    "validators": {
+                        "required": true
+                    }
+
+                },
+                {
+                    "name": "fecha_final",
+                    "label": "Hasta",
+                    "value": "",
+                    "type": "date",
+                    "validators": {
+                        "required": true
+                    }
+
+                },
+                {
+                    "name": "presente",
+                    "label": "Hasta el dia de hoy",
+                    "value": "",
+                    "type": "checkbox",
+                    "validators": {}
+
+                }
+            ]
+        }, "forma":{
+
+            
+            "controls": [
+                {
+                    "name": "titulo",
+                    "label": "Título:",
+                    "value": "",
+                    "placeholder":"Escribe aquí el Titulo de la Experiencia",
+                    "type": "text",
+                    "validators": {
+                        "required": true,
+                        "maxLength": 255
+                    }
+                },
+                {
+                    "name": "descrip_for",
+                    "label": "Descripción",
+                    "value": "",
+                    "placeholder":"Añada aqui una descripcion de la Formación",
+                    "type": "text",
+                    "validators": {
+                        "required": true,
+                        "maxLength": 255
+                    }
+                },
+                {
+                    "name": "promedio",
+                    "label": "Promedio",
+                    "value": "",
+                    "placeholder":"Añada aqui un Promedio",
+                    "type": "number",
+                    "validators": {}
+
+
+                },
+                {
+                    "name": "logo_inst",
+                    "label": "Logo de la Institucion",
+                    "value": "",
+                    "placeholder":"si lo hay",
+                    "type": "text",
+                    "validators": {
+                    }
+
+
+                },
+                {
+                    "name": "fecha_inicio",
+                    "label": "Desde",
+                    "value": "",
+                    "type": "date",
+                    "validators": {
+                        "required": true
+                    }
+
+                },
+                {
+                    "name": "fecha_final",
+                    "label": "Hasta",
+                    "value": "",
+                    "type": "date",
+                    "validators": {
+                        "required": true
+                    }
+
+                },
+                {
+                    "name": "presente",
+                    "label": "Hasta el dia de hoy",
+                    "value": "",
+                    "type": "checkbox",
+                    "validators": {}
+
+                }
+            ]
+        }
+    }
+]

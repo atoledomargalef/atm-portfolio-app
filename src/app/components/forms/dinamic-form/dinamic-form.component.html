@@ -1,0 +1,24 @@
+
+
+<div [formGroup]="form" class="m-s-e__contenedor_form" >
+    <label [attr.for]="question.key">{{question.label}}</label>
+  
+    <div [ngSwitch]="question.controlType">
+  
+      <input  *ngSwitchCase="'textbox'" [formControlName]="question.key"
+              [id]="question.key" [type]="question.type" placeholder="{{question.placeholder}}">
+  
+      <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
+        <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+
+      <textarea [id]="question.key" *ngSwitchCase="'textarea'" [formControlName]="question.key" minlength="{{question.minLength}}" >
+        
+      </textarea>
+  
+    </div>
+  
+    <div class="errorMessage" *ngIf="this.form.controls[this.question.key].errors?.['minlength']">{{question.label}} es corto</div>
+    <div class="errorMessage" *ngIf="this.form.controls[this.question.key].errors?.['required'] && this.form.controls[this.question.key].touched">{{question.label}} es requerido</div>
+
+  </div>

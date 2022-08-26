@@ -54,7 +54,7 @@
   border-radius: 20px;
   transition: all .3s;
   box-shadow: 0px 5px 30px -5px @A-Color-secun-light;
-
+  justify-content: space-between;
   padding: 1rem;
   background: @blanco;
   &:hover{
@@ -71,10 +71,8 @@
     margin-right: 2rem;
 
     &_info {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
+      display: block;
+      margin-bottom: 1rem;
       &-T {}
     }
 
@@ -85,12 +83,28 @@
     }
   }
 
+  &_imgNdelete{
+    margin: 1rem;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  &__delete{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: -1rem;
+    left: .5rem;
+  
+  }
   &_img {
 
     display: flex;
     min-width: 200px;
     min-height: 200px;
+
     border: 1pt solid @A-Color-secun;
+    border-radius: 15px;
 
     &-fig {}
 

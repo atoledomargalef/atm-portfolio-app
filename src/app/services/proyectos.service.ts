@@ -40,7 +40,6 @@ rutaApiNewProy = 'http://localhost:8080/new/proyecto';
     return this.http.put<Proyecto>( url, proy, httpOptions)
   }
   newProy(proy: Proyecto): Observable<Proyecto>{
-    const url = `${this.rutaApiProyEdit}/${proy.id}`
     return this.http.post<Proyecto>( this.rutaApiNewProy, proy, httpOptions)
   }
   

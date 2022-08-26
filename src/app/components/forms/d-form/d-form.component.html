@@ -1,0 +1,14 @@
+<div class="m-s-e__contenedor">
+    <form class="m-s-e__contenedor_form" (ngSubmit)="onSubmit()" [formGroup]="form">
+  
+      <div class="m-s-e__contenedor_form-b" *ngFor="let question of questions" >
+        <app-dinamic-form [question]="question" [form]="form"></app-dinamic-form>
+      </div>
+  
+      <div class="m-s-e__contenedor_form__button">
+             
+        <button class="boton-a" type="submit" [disabled]="!form.valid">{{botonName}}</button>
+      </div>
+    </form>
+  
+  </div>

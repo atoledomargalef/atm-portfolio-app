@@ -38,6 +38,13 @@ import { ForItemComponent } from './components/main/formacion/for-item/for-item.
 import { ExpNewComponent } from './components/main/experiencia/exp-new/exp-new.component';
 import { ExpItemComponent } from './components/main/experiencia/exp-item/exp-item.component';
 import { CloseButtonBComponent } from './components/buttons/close-button-b/close-button-b.component';
+import { DinamicFormComponent } from './components/forms/dinamic-form/dinamic-form.component';
+import { DFormComponent } from './components/forms/d-form/d-form.component';
+import { QuestionService } from './components/forms/question.service';
+import { QuestionControlService } from './components/forms/question-control.service';
+import { ProyQuestionService } from './components/main/proyectos/proy-question.service';
+
+
 
 @NgModule({
   declarations: [
@@ -70,7 +77,9 @@ import { CloseButtonBComponent } from './components/buttons/close-button-b/close
     ForItemComponent,
     ExpNewComponent,
     ExpItemComponent,
-    CloseButtonBComponent
+    CloseButtonBComponent,
+    DinamicFormComponent,
+    DFormComponent
   ],
   imports: [
     BrowserModule,
@@ -80,12 +89,12 @@ import { CloseButtonBComponent } from './components/buttons/close-button-b/close
     HttpClientModule,
     DragDropModule,
     FontAwesomeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
     
 
 
   ],
-  providers: [],
+  providers: [QuestionControlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

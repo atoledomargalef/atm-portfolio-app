@@ -3,7 +3,7 @@
 .m-s-e__contenedor{
 
     font-size: (@font-size-base /1.1);
-
+    
 
     &_form{
         display: flex;
@@ -14,6 +14,7 @@
         }
         input, textarea, select{
             font-family: 'Mulish', sans-serif;
+            width: 100%;
             padding:.5rem;
             margin-bottom: .5rem;
             border-radius: 10px;
@@ -31,6 +32,10 @@
         app-boton-a{
             align-self: flex-end;
             
+        }
+        &__button{
+            display: flex;
+            justify-content: center;
         }
         &-a{
 
@@ -123,3 +128,11 @@ input[type=checkbox]{
     display: inline-block;
     font-size: .8rem;
 }
+
+.errorMessage {
+    color: @A-color-calido;
+    font-size: .8rem;
+    margin-bottom: .8rem;
+    margin-top: -.3rem;
+}
+

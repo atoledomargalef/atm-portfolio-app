@@ -3,23 +3,24 @@
   <app-close-button (btnClick)="toogleNewProy()"></app-close-button>
   
     <h3>Nuevo Proyecto</h3>
-    <form class="m-s-e__contenedor_form" action="" (ngSubmit)="onSubmit()">
+    <form class="m-s-e__contenedor_form" action="">
   
       <div class="m-s-e__contenedor_form-a">
   
         <div class="m-s-e__contenedor_form-b">
-          <label for="">Titulo</label>
-          <input type="text">
-          <label for="">Link al proyecto</label>
-          <input type="text">
+          <label for="titulo">Titulo</label>
+          <input type="text" name="titulo"  id="titulo" [(ngModel)]="titulo">
+          <label for="link_proj">Link al proyecto</label>
+          <input type="text" name="link_proj"  id="link_proj" placeholder="Añade una descripcion del proyecto" [(ngModel)]="link_proj">
   
-          <label for="">Habilidades</label>
-          <input type="text">
+          <label for="habilidades">Habilidades</label>
+          <input type="text" name="habilidades"  id="habilidades" placeholder="Añade una descripcion del proyecto" [(ngModel)]="habilidades">
           <label for="">Imagen del Proyecto</label>
           <input type="text">
   
-          <label for="">Descripción</label>
-          <textarea type="text" name="" id="" placeholder="Añade una descripcion del proyecto"
+          <label for="descrip_proj">Descripción</label>
+          <textarea type="text" name="descrip_proj"  id="descrip_proj" placeholder="Añade una descripcion del proyecto"
+          [(ngModel)]="descrip_proj"
             >
   
                   </textarea>
