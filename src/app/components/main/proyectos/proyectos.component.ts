@@ -62,7 +62,6 @@ export class ProyectosComponent implements OnInit {
 
    toogleNewProy(){
     this.uiService.toogleNewProy();
-    console.log(this.showNewProy)
    }
 
 

@@ -1,1 +1,20 @@
-<p>exp-item works!</p>
+<div class="exp__contenedor">
+    <div class="exp__contenedor__header">
+        <h3 class="exp__contenedor__header-titulo"> {{exp.titulo}} </h3>
+        <p class="exp__contenedor__header-refe thin"> {{exp.refe}} </p>
+        <h3 class="exp__contenedor__header-logo"> Logo</h3>
+        
+    </div>
+    <div class="exp__contenedor__data">
+        <p class="exp__contenedor__data-fecha thin"> {{exp.fecha_inicio}} - {{exp.fecha_final}} </p>
+        <p class="exp__contenedor__data-descrip">{{exp.descrip_tareas}} </p>
+
+    </div>
+    <div class="proy-cont__delete">
+        <fa-icon 
+        class="a"
+        [icon]="faXmark"
+        >
+        </fa-icon>
+    </div>
+</div>

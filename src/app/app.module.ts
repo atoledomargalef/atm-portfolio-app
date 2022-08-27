@@ -43,6 +43,9 @@ import { DFormComponent } from './components/forms/d-form/d-form.component';
 import { QuestionService } from './components/forms/question.service';
 import { QuestionControlService } from './components/forms/question-control.service';
 import { ProyQuestionService } from './components/main/proyectos/proy-question.service';
+import { DatosExperienciaService } from './services/datos-experiencia.service';
+import { HabItemComponent } from './components/main/habilidades/hab-item/hab-item.component';
+import { NewHabUniComponent } from './components/main/habilidades/new-hab-uni/new-hab-uni.component';
 
 
 
@@ -79,7 +82,9 @@ import { ProyQuestionService } from './components/main/proyectos/proy-question.s
     ExpItemComponent,
     CloseButtonBComponent,
     DinamicFormComponent,
-    DFormComponent
+    DFormComponent,
+    HabItemComponent,
+    NewHabUniComponent
   ],
   imports: [
     BrowserModule,

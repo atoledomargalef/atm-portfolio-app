@@ -1,21 +1,34 @@
-<div class="exp__contenedor">
-    <div class="exp__contenedor__header">
-        <h3 class="exp__contenedor__header-titulo">{{form.titulo}}</h3>
-        <p class="exp__contenedor__header-refe thin">{{form.promedio}}</p>
-        <h3 class="exp__contenedor__header-logo"> Logo</h3>
-        
-    </div>
-    <div class="exp__contenedor__data">
-        <p class="exp__contenedor__data-fecha thin"> {{form.fecha_inicio}} / {{form.fecha_final}}</p>
-        <p class="exp__contenedor__data-descrip">{{form.descrip_for}}</p>
+<div class="main__section__view">
 
+    <app-add-button (btnClickN)="toogleNewForma()"></app-add-button>
+    <app-edit-button (btnClick)="toogleEditForma()"></app-edit-button>
+  
+    <h1>Formación</h1>
+  
+    <div class="proyList" cdkDropList (cdkDropListDropped)="drop($event)">
+      
+        <app-for-item
+        *ngFor="let form of forms"
+            [form]="form"
+            cdkDrag
+        ></app-for-item>
+    
     </div>
+  
+  </div>
 
-    <div class="proy-cont__delete">
-        <fa-icon 
-        class="a"
-        [icon]="faXmark"
-        >
-        </fa-icon>
+
+<div class="main__section__edit" *ngIf="showEditProy">
+    <div   >
+      <app-close-button (btnClick)="toogleEditForma()"></app-close-button>
+      
+      <h3>Editar Proyecto</h3>
+      <p class="main__section__edit__item">Item a Editar:  </p>
+      <app-d-form [questions]="questions$ | async"
+      
+        [botonName]="botonNameEdit"></app-d-form>
     </div>
-</div>
+  </div>
+
+
+

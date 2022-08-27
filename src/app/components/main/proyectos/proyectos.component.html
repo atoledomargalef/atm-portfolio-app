@@ -20,8 +20,8 @@
 <div class="main__section__edit" *ngIf="showEditProy">
   <div   >
     <app-close-button (btnClick)="toogleEditProy()"></app-close-button>
-    
-    <h3>Editar Proyecto</h3>
+
+    <h3 >Editar Proyecto</h3>
     <p class="main__section__edit__item">Item a Editar:  </p>
     <app-d-form [questions]="questions$ | async" (formOutput)="newProy($event)" [botonName]="botonNameEdit"></app-d-form>
   </div>

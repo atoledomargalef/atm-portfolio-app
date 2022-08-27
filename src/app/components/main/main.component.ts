@@ -18,12 +18,10 @@ export class MainComponent implements OnInit {
 
   
   exps : Experiencia[] = [];
-  forms : Formacion[] = [];
 
   constructor(
     
     private dExp : DatosExperienciaService,
-    private dFor : DatosFormacionService,
     ) { }
 
   ngOnInit( ): void {
@@ -35,10 +33,7 @@ export class MainComponent implements OnInit {
       console.log(this.exps)
     })
 
-    this.dFor.obtenerFor().subscribe((res)=>{
-      this.forms = res
-      console.log(this.forms)
-    })
+   
 
    
 

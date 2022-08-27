@@ -1,20 +1,38 @@
-<div class="exp__contenedor">
-    <div class="exp__contenedor__header">
-        <h3 class="exp__contenedor__header-titulo"> {{exp.titulo}} </h3>
-        <p class="exp__contenedor__header-refe thin"> {{exp.refe}} </p>
-        <h3 class="exp__contenedor__header-logo"> Logo</h3>
-        
-    </div>
-    <div class="exp__contenedor__data">
-        <p class="exp__contenedor__data-fecha thin"> {{exp.fecha_inicio}} - {{exp.fecha_final}} </p>
-        <p class="exp__contenedor__data-descrip">{{exp.descrip_tareas}} </p>
+<div class="main__section__view">
+  <app-add-button (btnClickN)="toogleNewExp()"></app-add-button>
+  <app-edit-button (btnClick)="toogleEditExp()"></app-edit-button>
+  <h1>Experiencia</h1>
 
-    </div>
-    <div class="proy-cont__delete">
-        <fa-icon 
-        class="a"
-        [icon]="faXmark"
-        >
-        </fa-icon>
-    </div>
+  <div class="drag" cdkDropList (cdkDropListDropped)="drop($event)">
+    <app-exp-item *ngFor="let exp of exps" [exp]="exp" cdkDrag></app-exp-item>
+  </div>
 </div>
+
+
+<!-- Form Of Edit Proyects -->
+
+
+<div class="main__section__edit" *ngIf="showEditExp">
+    <div   >
+      <app-close-button (btnClick)="toogleEditExp()"></app-close-button>
+      
+      <h3>Editar Experiencia</h3>
+      <p class="main__section__edit__item">Item a Editar:  </p>
+      <app-d-form [questions]="questions$ | async" (formOutput)="newProy($event)" [botonName]="botonNameEdit"></app-d-form>
+    </div>
+  </div>
+  
+  
+  
+  <!-- Form Of New Proyects -->
+  <div class="main__section__edit new" *ngIf="showNewExp">
+    <div class="m-s-e__contenedor">
+      
+      <app-close-button (btnClick)="toogleNewExp()"></app-close-button>
+      
+      <h3>Nueva Experiencia</h3>
+      
+      <app-d-form [questions]="questions$ | async" (formOutput)="newProy($event)" [botonName]="botonName"></app-d-form>
+    
+    </div> 
+  </div>

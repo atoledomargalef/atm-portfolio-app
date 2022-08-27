@@ -1,0 +1,23 @@
+<div class="hab__cont">
+
+   
+    <div class="hab__cont-item">
+        <div class="hab__cont-item-circle"></div>
+        <div class="hab__cont-item-text">
+                        <p >{{hab.habilidades}}</p>
+            <p class="thin">{{hab.porcentaje}}%</p>
+            <p class="thin">{{hab.descripcion}}</p>
+
+        </div>
+    </div>
+    <div class="proy-cont__delete">
+        <fa-icon 
+        class="a"
+        [icon]="faXmark"
+        (click)="onDelete(hab)"
+        >
+        </fa-icon>
+    </div>
+
+
+</div>

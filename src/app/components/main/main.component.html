@@ -1,58 +1,12 @@
 <div class="main">
-    <div class="main__section">
-        <div class="main__section__view">
-            <app-add-button></app-add-button>
-            <app-edit-button></app-edit-button>
-            <h1>Experiencia</h1>
-            <div class="drag"
-            cdkDropList
-            (cdkDropListDropped)="drop($event)"
-            >
-
-                <app-experiencia
-                *ngFor="let exp of exps"
-                [exp] = "exp"
-                cdkDrag
-                ></app-experiencia>
-            </div>
-        </div>
-        <app-exp-edit class="main__section__edit"></app-exp-edit>
-    </div>
-    <div class="main__section">
-        <div class="main__section__view">
-            <app-add-button></app-add-button>
-            <app-edit-button></app-edit-button>
-
-            <h1>Formación</h1>
-            <app-formacion
-            *ngFor="let form of forms"
-                [form] = "form"
-                cdkDrag
-            
-            ></app-formacion>
-            
-        </div>
-        <app-for-edit  class="main__section__edit"></app-for-edit>
-
-    </div>
-    <div class="main__section">
-
-        <div class="main__section__view">
-            
-            <app-add-button></app-add-button>
-            <app-edit-button></app-edit-button>
-            <h1>Habilidades</h1>
-            <app-habilidades></app-habilidades>
-        </div>
-        
-        <app-hab-edit class="main__section__edit"></app-hab-edit>
-    </div>
-
-
-  
-            <app-proyectos class="main__section"></app-proyectos>
-
-
-        
+    
+<!-- Experiencia -->
+  <app-experiencia class="main__section"></app-experiencia>
+<!-- Formacion -->
+  <app-formacion class="main__section"></app-formacion>
+<!-- habilidades -->
+  <app-habilidades class="main__section"></app-habilidades>
+<!-- Proyectos -->
+  <app-proyectos class="main__section"></app-proyectos>
 
 </div>

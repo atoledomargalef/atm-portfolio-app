@@ -1,38 +1,53 @@
-<div class="hab__cont">
+<div class="main__section__view">
 
-   
-    <div class="hab__cont-item">
-        <div class="hab__cont-item-circle"></div>
-        <div class="hab__cont-item-text">
-            <p >Bla Bla</p>
-            <p class="thin">100%</p>
-
-        </div>
-    </div>
-    <div class="hab__cont-item">
-        <div class="hab__cont-item-circle"></div>
-        <p class="hab__cont-item-text">Bla Bla</p>
-    </div>
-    <div class="hab__cont-item">
-        <div class="hab__cont-item-circle"></div>
-        <p class="hab__cont-item-text">Bla Bla</p>
-    </div>
-    <div class="hab__cont-item">
-        <div class="hab__cont-item-circle"></div>
-        <p class="hab__cont-item-text">Bla Bla</p>
-    </div>
-    <div class="hab__cont-item">
-        <div class="hab__cont-item-circle"></div>
-        <p class="hab__cont-item-text">Bla Bla</p>
-    </div>
-    <div class="hab__cont-item">
-        <div class="hab__cont-item-circle"></div>
-        <p class="hab__cont-item-text">Bla Bla</p>
-    </div>
-    <div class="hab__cont-item">
-        <div class="hab__cont-item-circle"></div>
-        <p class="hab__cont-item-text">Bla Bla</p>
-    </div>
+    <app-add-button (btnClickN)="toogleNewHabs()"></app-add-button>
+    <app-edit-button (btnClick)="toogleEditHabs()"></app-edit-button>
+  
+    <h1>Habilidades</h1>
+  
+    <div  class="hab__cont"
+        cdkDropList 
+        (cdkDropListDropped)="drop($event)">
+      
+            <app-hab-item
+            *ngFor="let hab of habs"
+            [hab]="hab"
+            (onDeleteHab)="borrarHab(hab)"
+            cdkDrag
+            ></app-hab-item>
     
+    </div>
 
 </div>
+
+
+
+
+<!-- Form Of Edit Proyects -->
+
+
+<div class="main__section__edit" *ngIf="showEditHab">
+    <div   >
+      <app-close-button (btnClick)="toogleEditHabs()"></app-close-button>
+  
+      <h3 >Editar Habilidad</h3>
+      <p class="main__section__edit__item">Item a editar:  </p>
+      <app-d-form [questions]="questions$ | async" (formOutput)="newHab($event)" [botonName]="botonNameEdit"></app-d-form>
+    </div>
+  </div>
+  
+  
+  
+  <!-- Form Of New Proyects -->
+  <div class="main__section__edit new" *ngIf="showNewHab">
+    <div class="m-s-e__contenedor">
+      
+      <app-close-button (btnClick)="toogleNewHabs()"></app-close-button>
+      
+      <h3>Nueva Habilidad</h3>
+      
+      <app-d-form [questions]="questions$ | async" (formOutput)="newHab($event)" [botonName]="botonName"></app-d-form>
+
+
+    </div> 
+  </div>
