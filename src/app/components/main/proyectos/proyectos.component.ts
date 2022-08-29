@@ -7,6 +7,8 @@ import { Observable, Subscription } from 'rxjs';
 import { QuestionService } from '../../forms/question.service';
 import { QuestionBase } from '../../forms/question-base';
 import { ProyQuestionService } from './proy-question.service';
+import { Imagen } from 'src/app/img';
+import { QuestionImgService } from '../../forms/questionImg.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -17,6 +19,7 @@ import { ProyQuestionService } from './proy-question.service';
 export class ProyectosComponent implements OnInit {
 
   proys: Proyecto[] = [];
+  img: Imagen[] = [];
   
   questions$: Observable<QuestionBase<any>[]>;
 
@@ -30,8 +33,8 @@ export class ProyectosComponent implements OnInit {
   subscriptionNew?: Subscription;
 
   constructor(private proyService : ProyectosService ,
-    private uiService: UiServiceService,
-    service:ProyQuestionService
+    private uiService: UiServiceService, 
+    service:ProyQuestionService,
     ) {
 
     this.subscription = this.uiService.onToogle()
@@ -83,6 +86,12 @@ export class ProyectosComponent implements OnInit {
     })
   }
 
+  // newImg(img:Imagen){
+  //   this.imgS.uploadFile(img)
+  //   .subscribe((res) =>{
+  //     this.img.push(res)
+  //   })
+  // }
 
 
   // DROP DRAG

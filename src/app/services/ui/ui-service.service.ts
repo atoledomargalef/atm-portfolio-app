@@ -11,12 +11,16 @@ import {
 })
 export class UiServiceService {
 
+  private showEditPer: boolean = false;
+  private showPerInfo: boolean = false;
   private showEditProy: boolean = false;
   private showNewProy: boolean = false;
   private showEditExp: boolean = false;
   private showNewExp: boolean = false;
   private showEditHab: boolean = false;
   private showNewHab: boolean = false;
+  private showEditForma: boolean = false;
+  private showNewForma: boolean = false;
   private showNUHab: boolean = false;
 
   private subject = new Subject < any > ();
@@ -26,6 +30,8 @@ export class UiServiceService {
   private subjectH = new Subject < any > ();
   private subjectNH = new Subject < any > ();
   private subjectUH = new Subject < any > ();
+  private subjectEP = new Subject < any > ();
+  private subjectPI = new Subject < any > ();
 
   constructor() {}
 
@@ -33,6 +39,17 @@ export class UiServiceService {
 
 
 // toogleEdit() and toogleNew() ------------------------------------
+
+// Per
+
+toogleEditPer(): void {
+  this.showEditPer = !this.showEditPer;
+  this.subjectEP.next(this.showEditPer);
+}
+tooglePerInfo(): void {
+  this.showPerInfo = !this.showPerInfo;
+  this.subjectPI.next(this.showPerInfo);
+}
 
 // Proy
   toogleEditProy(): void {
@@ -79,6 +96,14 @@ toogleNUHabs(): void {
 
 
 // onToogles()
+onToogleEP(): Observable < any > {
+
+  return this.subjectEP.asObservable();
+}
+onTooglePI(): Observable < any > {
+
+  return this.subjectPI.asObservable();
+}
 
 //Exp 
 onToogleE(): Observable < any > {

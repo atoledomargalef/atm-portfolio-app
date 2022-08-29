@@ -1,15 +1,21 @@
 @import "../../../../styles.less";
+@import "../../main/main.component.less";
 
 .persInfo {
-
+    display: flex;flex-direction: column;
     margin:1rem;
+
+
+   &__list{
+    
     display: flex;
     flex-wrap: wrap;
 
-    & li{
+    li{
         margin-bottom: .5rem;
         margin-right: 2rem ;
         list-style: none;
     }
+   }
 
 }

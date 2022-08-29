@@ -5,6 +5,7 @@ import { QuestionControlService } from 'src/app/components/forms/question-contro
 import { DateQuestion } from 'src/app/components/forms/question-date';
 import { TextBoxQuestion } from 'src/app/components/forms/question-textbox';
 import { TextareaQuestion } from 'src/app/components/forms/question-textarea';
+import { FileQuestion } from '../../forms/question-file';
 import { of } from 'rxjs';
 import { HiddenQuestion } from 'src/app/components/forms/question-hidden';
 import { DropdownQuestion } from 'src/app/components/forms/question-dropdown';
@@ -46,10 +47,9 @@ export class ProyQuestionService {
                 required:true,
                 order: 2
               }),
-              new TextBoxQuestion({
+              new FileQuestion({
                 key: 'img_proyecto',
                 label: 'Imagen del Proyecto',
-                type: 'text',
                 required:true,
                 order: 4
               }),

@@ -1,13 +1,21 @@
 
 <div class="persInfo">
+    
+    <app-edit-button style="top:1rem;" (btnClick)="toogleEditPer()"></app-edit-button>
+
+    <div class="persInfo__list">
+        
+   
+
     <ul >
-        <li><p><b>DNI:</b> {{dato.dni}}</p></li>
-        <li><p><b>Fecha de Nacimiento:</b> {{dato.fecha_nac}}</p></li>
-        <li><p><b>Ciudad:</b> {{dato.lugar_act}}</p></li>
+        <li><p><b>DNI: </b> {{datos.dni}}</p></li>
+        <li><p><b>Fecha de Nacimiento: </b> {{datos.fecha_nac}}</p></li>
+        <li><p><b>Ciudad: </b> {{datos.lugar_act}}</p></li>
     </ul>
     <ul >
-        <li><p><b>Direccion:</b> {{dato.direccion_act}}</p></li>
-        <li><p><b>Telefono:</b> {{dato.telefono_cel}}</p></li>
-        <li><p><b>Email:</b>{{dato.email}}  </p></li>
+        <li><p><b>Direccion: </b> {{datos.direccion_act}}</p></li>
+        <li><p><b>Telefono: </b> {{datos.telefono_cel}}</p></li>
+        <li><p><b>Email: </b> {{datos.email}}</p></li>
     </ul>
+     </div>
 </div>

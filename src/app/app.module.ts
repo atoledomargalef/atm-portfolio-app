@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 import { AppComponent } from './app.component';
+
 import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
@@ -46,7 +49,8 @@ import { ProyQuestionService } from './components/main/proyectos/proy-question.s
 import { DatosExperienciaService } from './services/datos-experiencia.service';
 import { HabItemComponent } from './components/main/habilidades/hab-item/hab-item.component';
 import { NewHabUniComponent } from './components/main/habilidades/new-hab-uni/new-hab-uni.component';
-
+import { QuestionImgService } from './components/forms/questionImg.service';
+import { Imagen } from './img';
 
 
 @NgModule({
@@ -84,7 +88,8 @@ import { NewHabUniComponent } from './components/main/habilidades/new-hab-uni/ne
     DinamicFormComponent,
     DFormComponent,
     HabItemComponent,
-    NewHabUniComponent
+    NewHabUniComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -95,11 +100,27 @@ import { NewHabUniComponent } from './components/main/habilidades/new-hab-uni/ne
     DragDropModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    
-
-
+    NgCircleProgressModule.forRoot({
+      "radius": 60,
+      "space": -10,
+      "outerStrokeGradient": true,
+      "outerStrokeWidth": 10,
+      "outerStrokeColor": "#4882c2",
+      "outerStrokeGradientStopColor": "#53a9ff",
+      "innerStrokeColor": "#e7e8ea",
+      "innerStrokeWidth": 10,
+      "title": "UI",
+      "animateTitle": false,
+      "animationDuration": 1000,
+      "showUnits": false,
+      "showBackground": false,
+      "clockwise": false,
+      "startFromZero": false})
   ],
-  providers: [QuestionControlService],
+  providers: [QuestionControlService, QuestionImgService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+

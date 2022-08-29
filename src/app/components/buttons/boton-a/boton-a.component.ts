@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./boton-a.component.less']
 })
 export class BotonAComponent implements OnInit {
-
+@Output() btnAClick = new EventEmitter();
 @Input() text="";
 @Input() type="";
 form!: FormGroup;
@@ -15,5 +15,10 @@ form!: FormGroup;
 
   ngOnInit(): void {
   }
+  onClick(){
+  
+    this.btnAClick.emit();
+    console.log("Show Personal Info");
 
+  }
 }

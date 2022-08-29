@@ -5,6 +5,7 @@ import { Persona } from '../persona';
 import { Experiencia } from '../experiencia';
 import { Formacion } from '../formacion';
 import { Proyecto } from '../proyecto';
+import { Imagen } from '../img';
 
 
 const httpOptions = {
@@ -19,6 +20,9 @@ const httpOptions = {
 })
 export class ProyectosService {
 
+ 
+  private filePath:any;
+  private downloadUrl : Observable<string>; 
   
 rutaApiProy = 'http://localhost:8080/ver/proyectos';
 rutaApiProyEdit = 'http://localhost:8080/editar/proyectos';
@@ -35,12 +39,18 @@ rutaApiNewProy = 'http://localhost:8080/new/proyecto';
     const url = `${this.rutaApiProyDelete}/${proy.id}`
     return this.http.delete<Proyecto>( url )
   }
+  private uploadFile(img : Imagen){
+    this.filePath = ``
+  }
+  
   editarProy(proy: Proyecto): Observable<Proyecto>{
     const url = `${this.rutaApiProyEdit}/${proy.id}`
     return this.http.put<Proyecto>( url, proy, httpOptions)
   }
   newProy(proy: Proyecto): Observable<Proyecto>{
+    console.log(proy);
     return this.http.post<Proyecto>( this.rutaApiNewProy, proy, httpOptions)
+    
   }
   
 }

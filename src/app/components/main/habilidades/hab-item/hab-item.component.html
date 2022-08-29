@@ -2,22 +2,40 @@
 
    
     <div class="hab__cont-item">
-        <div class="hab__cont-item-circle"></div>
-        <div class="hab__cont-item-text">
-                        <p >{{hab.habilidades}}</p>
-            <p class="thin">{{hab.porcentaje}}%</p>
-            <p class="thin">{{hab.descripcion}}</p>
+        
+       
 
-        </div>
+            <div class="hab__cont-item-delete">
+                <fa-icon 
+                class="a"
+                [icon]="faXmark"
+                (click)="onDelete(hab)"
+                *ngIf="true"
+                >
+                </fa-icon>
+            </div>
+
+            <circle-progress 
+            class="hab__cont-item-circle"
+            [percent]="hab.porcentaje"
+            [radius]="70"
+
+            [outerStrokeColor]="'#3A53CE'"
+            [outerStrokeGradientStopColor]="'#7DAFE2'"
+            [animation]="true"
+            [animationDuration]="300"
+            [title]="hab.habilidades"  [subtitle]="hab.descripcion"
+
+           
+            ></circle-progress>
+            
+
+        
+
     </div>
-    <div class="proy-cont__delete">
-        <fa-icon 
-        class="a"
-        [icon]="faXmark"
-        (click)="onDelete(hab)"
-        >
-        </fa-icon>
-    </div>
+
+
+   
 
 
 </div>

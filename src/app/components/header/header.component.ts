@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { DatosPersonaService } from 'src/app/services/datos-persona.service';
+import { UiServiceService } from 'src/app/services/ui/ui-service.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,20 @@ import { DatosPersonaService } from 'src/app/services/datos-persona.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+
+  showEditPer:boolean = false;
+  showPerInfo:boolean = false;
+  
+  subscription?: Subscription;
+  subscriptionI?: Subscription;
+
+  constructor( private uiService: UiServiceService, ) {
+    this.subscription = this.uiService.onToogleEP()
+    .subscribe(value => this.showEditPer = value);
+
+    this.subscriptionI = this.uiService.onTooglePI()
+    .subscribe(value => this.showPerInfo = value);
+   }
 
   ngOnInit(): void {
 
@@ -17,5 +32,11 @@ export class HeaderComponent implements OnInit {
 
     
   }
+
+
+   tooglePerInfo(){
+    this.uiService.tooglePerInfo();
+   }
+
 
 }
