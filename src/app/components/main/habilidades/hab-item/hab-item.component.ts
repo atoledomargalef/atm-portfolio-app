@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { Habilidades } from 'src/app/habilidades';
+import { AuthService } from 'src/app/services/auth.service';
 import { UiServiceService } from 'src/app/services/ui/ui-service.service';
 
 @Component({
@@ -20,9 +21,10 @@ export class HabItemComponent implements OnInit {
   
   showEditHab: boolean = false;
   subscription: Subscription;
+  authUser: boolean = false;
 
   constructor(
-    private uiService: UiServiceService
+    private uiService: UiServiceService, private auth:AuthService 
   ) {
     
 
@@ -30,9 +32,14 @@ export class HabItemComponent implements OnInit {
                                       .subscribe(value => this.showEditHab = value)
 
    }
-
-  ngOnInit(): void {
-
+   
+   ngOnInit(): void {
+    let currentUser = this.auth.UserAuth;
+    if (currentUser && currentUser.token){
+      this.authUser = true;
+    } else {
+      this.authUser = false;
+    }
 
 
   }

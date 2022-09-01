@@ -1,10 +1,10 @@
 <div class="main__section__view">
-  <app-add-button (btnClickN)="toogleNewExp()"></app-add-button>
-  <app-edit-button (btnClick)="toogleEditExp()"></app-edit-button>
+  <app-add-button *ngIf="authUser" (btnClickN)="toogleNewExp()"></app-add-button>
+  <!-- <app-edit-button *ngIf="authUser" (btnClick)="toogleEditExp()"></app-edit-button> -->
   <h1>Experiencia</h1>
 
   <div class="drag" cdkDropList (cdkDropListDropped)="drop($event)">
-    <app-exp-item *ngFor="let exp of exps" [exp]="exp" cdkDrag></app-exp-item>
+    <app-exp-item *ngFor="let exp of exps" [exp]="exp" (onDeleteExp)="borrarExp(exp)"  cdkDrag [cdkDragDisabled]="!authUser"></app-exp-item>
   </div>
 </div>
 
@@ -18,7 +18,7 @@
       
       <h3>Editar Experiencia</h3>
       <p class="main__section__edit__item">Item a Editar:  </p>
-      <app-d-form [questions]="questions$ | async" (formOutput)="newProy($event)" [botonName]="botonNameEdit"></app-d-form>
+      <app-d-form [questions]="questions$ | async" (formOutput)="newExp($event)" [botonName]="botonNameEdit" ></app-d-form>
     </div>
   </div>
   
@@ -32,7 +32,7 @@
       
       <h3>Nueva Experiencia</h3>
       
-      <app-d-form [questions]="questions$ | async" (formOutput)="newProy($event)" [botonName]="botonName"></app-d-form>
+      <app-d-form [questions]="questions$ | async" (formOutput)="newExp($event)" [botonName]="botonName"></app-d-form>
     
     </div> 
   </div>

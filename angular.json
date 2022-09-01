@@ -38,18 +38,16 @@
           "configurations": {
             "production": {
               "budgets": [
-              
-                  {
-                     "type": "initial",
-                     "maximumWarning": "4mb",
-                     "maximumError": "5mb"
-                  },
-                  {
-                     "type": "anyComponentStyle",
-                     "maximumWarning": "150kb",
-                     "maximumError": "150kb"
-                  }
-               
+                {
+                  "type": "initial",
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "150kb",
+                  "maximumError": "150kb"
+                }
               ],
               "fileReplacements": [
                 {
@@ -105,9 +103,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "atm-portfolio-app:build:production",
+            "firebaseProject": "atm-portfolio",
+            "firebaseHostingSite": "atm-portfolio"
+          }
         }
       }
     }
   },
-  "defaultProject": "atm-portfolio-app"
+  "cli": {
+    "analytics": "292b11b2-b9cc-4413-924a-a76912c1599d"
+  }
 }

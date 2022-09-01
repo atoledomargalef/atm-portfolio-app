@@ -1,7 +1,7 @@
 <div class="exp__contenedor">
-    <div class="exp__contenedor__header-logo">
+    <!-- <div class="exp__contenedor__header-logo">
         <img src="" alt="">
-    </div>
+    </div> -->
     <div class="exp__contenedor__header">
         <h3 class="exp__contenedor__header-titulo"> {{exp.titulo}} </h3>
         <p class="exp__contenedor__header-refe thin"> {{exp.refe}} </p>
@@ -12,10 +12,11 @@
         <p class="exp__contenedor__data-descrip">{{exp.descrip_tareas}} </p>
 
     </div>
-    <div class="proy-cont__delete">
+    <div *ngIf="authUser" class="proy-cont__delete">
         <fa-icon 
         class="a"
         [icon]="faXmark"
+        (click)="onDelete(exp)"
         >
         </fa-icon>
     </div>

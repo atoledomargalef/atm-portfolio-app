@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/menu/login/login.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { GuardGuard } from './services/guard.guard';
 
 const routes: Routes = [
 
-  {path:'', component:PortfolioComponent},
+  {path:'portfolio', component:PortfolioComponent},
   {path:'login', component:LoginComponent},
-  {path:'', redirectTo:'', pathMatch:'full'}
+  {path:'', redirectTo:'portfolio', pathMatch:'full'}
 
 ];
 

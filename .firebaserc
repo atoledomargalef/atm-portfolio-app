@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "atm-portfolio"
+  },
+  "targets": {
+    "atm-portfolio": {
+      "hosting": {
+        "atm-portfolio-app": [
+          "atm-portfolio"
+        ]
+      }
+    }
   }
 }

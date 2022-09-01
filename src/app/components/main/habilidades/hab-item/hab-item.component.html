@@ -5,7 +5,7 @@
         
        
 
-            <div class="hab__cont-item-delete">
+            <div *ngIf="authUser" class="hab__cont-item-delete">
                 <fa-icon 
                 class="a"
                 [icon]="faXmark"

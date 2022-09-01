@@ -11,6 +11,7 @@ import { DataHabsService } from 'src/app/services/data-habs.service';
 import { Habilidades } from 'src/app/habilidades';
 import { Hab } from 'src/app/hab';
 import { DataHabService } from 'src/app/services/data-hab.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-habilidades',
@@ -32,14 +33,15 @@ export class HabilidadesComponent implements OnInit {
   showEditHab:boolean = false;
   showNewHab:boolean = false;
   showNUHab:boolean = false;
+  authUser: boolean = false;
+  cDrag:boolean = false;
   
   subscription?: Subscription;
   subscriptionNew?: Subscription;
   subscriptionU?: Subscription;
 
-  constructor(private habsService : DataHabsService , private habServ : DataHabService,
-    private uiService: UiServiceService,
-    service:HabsQuestionService) { 
+  constructor(private habsService : DataHabsService , private auth : AuthService,
+    private uiService: UiServiceService, private service:HabsQuestionService) { 
 
       this.subscription = this.uiService.onToogleH()
       .subscribe(value => this.showEditHab = value);
@@ -59,10 +61,14 @@ export class HabilidadesComponent implements OnInit {
       console.log(this.habs)
     })
 
-    this.habServ.obtenerUHab().subscribe((res)=>{
-      this.habUni = res
-      console.log(this.habUni)
-    })
+    let currentUser = this.auth.UserAuth;
+    if (currentUser && currentUser.token){
+      this.authUser = true;
+      this.cDrag = false;
+    } else {
+      this.cDrag = true;
+      this.authUser = false;
+    }
   }
 
 

@@ -19,9 +19,11 @@ const httpOptions = {
 export class DatosFormacionService {
 
   
-rutaApiFor = 'http://localhost:8080/ver/formacion';
-rutaApiForEdit = 'http://localhost:8080//formacion';
-rutaApiForDelete = 'http://localhost:8080/ver/formacion';
+rutaApiFor = 'https://polar-coast-76091.herokuapp.com/ver/formacion';
+verForm = '/ver/formacion'
+rutaApi = 'https://polar-coast-76091.herokuapp.com';
+formDelete = '/delete/formacion';
+formNew = '/new/formacion';
 
   constructor(private http:HttpClient) { }
 
@@ -30,11 +32,20 @@ rutaApiForDelete = 'http://localhost:8080/ver/formacion';
 
 
   obtenerFor(){
-    return this.http.get<Formacion[]>( this.rutaApiFor)
-  }
-  editarFor(){
-    return this.http.get<Formacion[]>( this.rutaApiFor)
+    const url = `${this.rutaApi}${this.verForm}`
+    return this.http.get<Formacion[]>( url)
   }
 
+
+  newForma(forma: Formacion):Observable<Formacion>{
+const url = `${this.rutaApi}${this.formNew}`
+    return this.http.post<Formacion>(url, forma, httpOptions)
+  }
+
+
+  borrarForm(form: Formacion): Observable<Formacion>{
+    const url = `${this.rutaApi}${this.formDelete}/${form.id}`
+    return this.http.delete<Formacion>( url , httpOptions)
+  }
   
 }

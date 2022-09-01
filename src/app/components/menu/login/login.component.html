@@ -1,27 +1,45 @@
-<form [formGroup]="form" (ngSubmit)="onEnviar($event)">
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-      <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-      [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}">
-      <div *ngIf="Email?.errors && Email?.touched">
-          <p *ngIf="Email?.hasError('required')">El Email es requerido.</p>
-          <p *ngIf="Email?.hasError('email')">El formato del email debe ser valido.</p>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
-      [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is-valid': !Password?.errors && Password?.touched}">
-      <div *ngIf="Password?.errors && Password?.touched">
-        <p *ngIf="Password?.hasError('required')">El Password es requerido.</p>
-        <p *ngIf="Password?.hasError('minlength')">El formato del password debe ser mayor a 8 caracteres.</p>
-    </div>
+<div class="login">
+
+  <div class="login__cont">
     
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-  </form>
- 
+    <form class="login__cont__form" [formGroup]="form" (ngSubmit)="onEnviar($event)">
+      
+      <div class="login__cont__form--Linput">
+        <label for="nombreUsuario">Usuario</label>
+        <input type="text" formControlName="nombreUsuario" class="form-control" id="usuario" aria-describedby="emailHelp"
+        [ngClass]="{'is-invalid': NombreUsuario?.errors && NombreUsuario?.touched, 'is-valid': !NombreUsuario?.errors && NombreUsuario?.touched}">
+        <div *ngIf="NombreUsuario?.errors && NombreUsuario?.touched">
+          <p *ngIf="NombreUsuario?.hasError('required')">El Usuario es requerido.</p>
+        </div>
+      </div>
+      
+      <div class="login__cont__form--Linput">
+        <label for="exampleInputPassword1" >Contraseña</label>
+        <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
+        [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is-valid': !Password?.errors && Password?.touched}">
+        <div *ngIf="Password?.errors && Password?.touched">
+          <p *ngIf="Password?.hasError('required')">El Password es requerido.</p>
+          <p *ngIf="Password?.hasError('minlength')">El formato del password debe ser mayor a 8 caracteres.</p>
+        </div>
+        
+      </div>
+      
+      <!-- <div class="login__cont__form--check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
+      </div> -->
+      <div class="login__cont__form--button">
+
+        <button  type="submit" class="boton-a">Enviar</button>
+      </div>
+      <div class="login__cont__form--error">
+        
+        <p>{{errorMessage}}</p>
+
+      </div>
+    </form>
+    
+    
+  </div>
+
+</div>

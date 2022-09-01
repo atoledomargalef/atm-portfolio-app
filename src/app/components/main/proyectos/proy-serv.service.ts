@@ -1,12 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Persona } from '../persona';
-import { Experiencia } from '../experiencia';
-import { Formacion } from '../formacion';
-import { Proyecto } from '../proyecto';
-import { Imagen } from '../img';
-import { FileI } from '../fileI';
+
+import { Proyecto } from 'src/app/proyecto';
+
 import { catchError, finalize, map, retry, switchMap, throwError } from 'rxjs';
 import { Firestore } from '@angular/fire/firestore';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
@@ -23,11 +20,8 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class ProyectosService {
-
-
-
-  public imagenRepo : any;
+export class ProyServService {
+ public imagenRepo : any;
 
 
 rutaApi = 'https://polar-coast-76091.herokuapp.com';
@@ -47,29 +41,19 @@ newLProy = '/new/proyecto';
     const url = `${this.rutaApi}${this.proyDelete}/${proy.id}`
     return this.http.delete<Proyecto>( url )
   }
-  private extractData(res: any) {
-    let body = res;
-    return body;
-  }
-  private handleErrorObservable(error: any) {
-    console.error(error.message || error);
-    return throwError(error);
-  } 
+
   
   editarProy(proy: Proyecto): Observable<Proyecto>{
     const url = `${this.rutaApi}${this.proyEdit}/${proy.id}`
-    return this.http.put<Proyecto>( url, proy, httpOptions).pipe(
-      map(this.extractData),
-      catchError(this.handleErrorObservable)
-    );
+    return this.http.put<Proyecto>( url, proy, httpOptions)
   }
 
 
 
-newProy(proy:Proyecto):Observable<Proyecto>{
+newProy(proy:Proyecto){
   
-
-    return this.http.post<Proyecto>(`${this.rutaApi}${this.newLProy}`, proy, httpOptions)
+  console.log(proy + "2")
+    this.http.post<Proyecto>(`${this.rutaApi}${this.newLProy}`, proy, httpOptions).subscribe(res => console.log(res))
 
   }
  // Error handling

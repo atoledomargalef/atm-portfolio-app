@@ -4,16 +4,17 @@
         <h3>#YoProgramo <br> <span class="sec">2da edición</span> </h3>
     </div>
     <div class="navbar__redes">
+      
         <div class="navbar__redes-links">
             <i></i>
-            <a href="">Instagram</a>
-        </div>
-        <div class="navbar__redes-links">
-            <i></i>
-            <a href="">Instagram</a>
+            <a href="https://www.instagram.com/toledomargalef/">@toledomargalef</a>
         </div>
     </div>
     <div class="navbar__sesion">
-        <app-boton-sesion></app-boton-sesion>
+        <app-boton-sesion [text]="inicioS" *ngIf="!authUser" (click)="toLogin()"></app-boton-sesion>
+        <div *ngIf="authUser">
+            <app-boton-sesion [text]="cierreS"  (click)="logOut()"></app-boton-sesion>
+        </div>
+
     </div>
 </nav>

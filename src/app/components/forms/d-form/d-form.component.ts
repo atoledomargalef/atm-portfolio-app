@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 import { QuestionBase } from '../question-base';
 import { QuestionControlService } from '../question-control.service';
@@ -17,23 +17,18 @@ export class DFormComponent implements OnInit {
   @Input() questions: QuestionBase<string>[] | null = [];
   @Output() formOutput: EventEmitter<any> = new EventEmitter();
   @Output() imgProy: EventEmitter<any> = new EventEmitter();
-  form!: FormGroup;
+  form!: UntypedFormGroup;
   payLoad = '';
-  archivo: Imagen;
 
-  constructor( private qcs: QuestionControlService, private imgServ : QuestionImgService ) { }
+  constructor( private qcs: QuestionControlService) { }
 
   ngOnInit(): void {
     this.form =this.qcs.toFormGroup(this.questions as QuestionBase<string>[]);
-
   }
 
   onSubmit() {
     this.formOutput.emit(this.form.value);
-    this.imgProy.emit(this.archivo)
-    
-
-    
+   
 
   }
 

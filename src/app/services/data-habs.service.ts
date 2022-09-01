@@ -15,10 +15,10 @@ const httpOptions = {
 })
 export class DataHabsService {
     
-  rutaApiHabs = 'http://localhost:8080/ver/habilidades';
-  rutaApiHabsEdit = 'http://localhost:8080/editar/habilidades';
-  rutaApiHabsDelete = 'http://localhost:8080/delete/habilidades';
-  rutaApiNewHabs = 'http://localhost:8080/new/habilidades';
+  rutaApiHabs = 'https://polar-coast-76091.herokuapp.com/ver/habilidades';
+  rutaApiHabsEdit = 'https://polar-coast-76091.herokuapp.com/editar/habilidades';
+  rutaApiHabsDelete = 'https://polar-coast-76091.herokuapp.com/delete/habilidades';
+  rutaApiNewHabs = 'https://polar-coast-76091.herokuapp.com/new/habilidades';
   
     constructor(private http:HttpClient) { }
   

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,13 +10,13 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  form:FormGroup;
+  form:UntypedFormGroup;
+  errorMessage:string="";
 
-
-  constructor( private formbuilder:FormBuilder , private authService:AuthService, private ruta:Router) {
+  constructor( private formbuilder:UntypedFormBuilder , private authService:AuthService, private ruta:Router) {
     this.form= this.formbuilder.group(
       {
-        email:['',[Validators.required,Validators.email]],
+        nombreUsuario:['',[Validators.required,Validators.email]],
         password:['',[Validators.required, Validators.minLength(8)]]
 
       }
@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get Email(){
-    return this.form.get('email')
+  get NombreUsuario(){
+    return this.form.get('nombreUsuario')
   }
   get Password(){
     return this.form.get('password')
@@ -40,9 +40,12 @@ export class LoginComponent implements OnInit {
     event.preventDefault;
     this.authService.logIn(this.form.value)
                     .subscribe(data=>{
-                      console.log("DATA: " + JSON.stringify(data));
                       this.ruta.navigate(['/portfolio']);
-                    })
+                    },(error) => {
+                      if(error == 401){
+                        this.errorMessage = "El Usuario o la Password son incorrectos"
+                      }}
+                    )
   }
 
 }

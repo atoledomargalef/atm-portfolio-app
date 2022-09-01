@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup, MinLengthValidator } from '@angular/forms';
+import { UntypedFormGroup, MinLengthValidator } from '@angular/forms';
 import { Imagen } from 'src/app/img';
+import { ProyectosService } from 'src/app/services/proyectos.service';
 import { QuestionBase } from '../question-base';
 import { QuestionImgService } from '../questionImg.service';
 
@@ -13,30 +14,24 @@ import { QuestionImgService } from '../questionImg.service';
 })
 export class DinamicFormComponent {
   @Input() question!: QuestionBase<any>;
-  @Input() form!: FormGroup;
+  @Input() form!: UntypedFormGroup;
 
   @Output() imgProy: EventEmitter<any> =  new EventEmitter();
-  public archivo : Imagen;
+
  file!: any;
-  public lastPK : number;
-  constructor(
-    ) { }
+
+  constructor( private proyServ : ProyectosService
+    ) { 
+
+      
+
+    }
 
   ngOnInit(): void {
     
   }
 
 
-  fileEvent(event: any){
-    
-    this.file = event.target.files[0];
-    console.log(this.file)
-
-
-      this.archivo = new Imagen(this.lastPK + 1, event.name, event.type)
-      console.log(event.name)
-     
-  }
 
   get isValid() { return this.form.controls[this.question.key].valid; }
   

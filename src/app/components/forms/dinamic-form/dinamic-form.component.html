@@ -1,6 +1,6 @@
 
 
-<div [formGroup]="form" class="m-s-e__contenedor_form" >
+<div [formGroup]="form" class="m-s-e__contenedor_form_inputL" >
     <label [attr.for]="question.key">{{question.label}}</label>
   
     <div [ngSwitch]="question.controlType">
@@ -10,7 +10,7 @@
      
       <input  *ngSwitchCase="'file'" [formControlName]="question.key"
               [id]="question.key" [type]="question.type" placeholder="{{question.placeholder}}"
-              (change)="fileEvent($event)">
+           >
   
       <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
         <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>

@@ -11,7 +11,7 @@ import { HiddenQuestion } from 'src/app/components/forms/question-hidden';
 import { DropdownQuestion } from 'src/app/components/forms/question-dropdown';
 
 @Injectable()
-export class ProyQuestionService {
+export class ExpQuestionService {
 
     getQuestions() {
 
@@ -26,38 +26,36 @@ export class ProyQuestionService {
                 order: 1
               }),
               new TextareaQuestion({
-                key: 'descrip_proj',
-                label: 'Descripción',
+                key: 'descrip_tareas',
+                label: 'Descripcion de tareas',
                 type: 'text',
+                placeholder: "Describe las tareas que realizaste",
                 required:true,
                 minLength:20,
                 order: 5
               }),
               new TextBoxQuestion({
-                key: 'link_proj',
-                label: 'Link al Proyecto',
-                type: 'text',
+                key: 'fecha_final',
+                label: 'Hasta',
+                type: 'date',
                 required:true,
                 order: 3
               }),
               new TextBoxQuestion({
-                key: 'habilidades',
-                label: 'Habilidades',
-                type: 'text',
+                key: 'fecha_inicio',
+                label: 'Desde',
+                type: 'date',
                 required:true,
                 order: 2
               }),
-              // new FileQuestion({
-              //   key: 'img_proyecto',
-              //   label: 'Imagen del Proyecto',
-              //   required:true,
-              //   order: 4
-              // }),
-              new HiddenQuestion({
-                key: 'persona_id',
-                value: '6',
-                order: 6,
-              })
+              new TextBoxQuestion({
+                key: 'refe',
+                label: 'Referencia',
+                type: 'text',
+                required:false,
+                order: 4
+              }),
+             
 
         ];
 

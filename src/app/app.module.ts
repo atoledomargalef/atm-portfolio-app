@@ -15,7 +15,7 @@ import { BotonSesionComponent } from './components/buttons/boton-sesion/boton-se
 import { LoginComponent } from './components/menu/login/login.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AboutComponent } from './components/header/about/about.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { PersonalInfoComponent } from './components/header/personal-info/personal-info.component';
@@ -51,6 +51,16 @@ import { HabItemComponent } from './components/main/habilidades/hab-item/hab-ite
 import { NewHabUniComponent } from './components/main/habilidades/new-hab-uni/new-hab-uni.component';
 import { QuestionImgService } from './components/forms/questionImg.service';
 import { Imagen } from './img';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { InterceptorService } from './services/interceptor.service';
+
 
 
 @NgModule({
@@ -115,9 +125,19 @@ import { Imagen } from './img';
       "showUnits": false,
       "showBackground": false,
       "clockwise": false,
-      "startFromZero": false})
+      "startFromZero": false}),
+ 
+    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
   ],
-  providers: [QuestionControlService, QuestionImgService],
+  providers: [QuestionControlService,
+     ScreenTrackingService,
+     UserTrackingService, 
+     AngularFirestore,  
+     AngularFireAuth,
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,8 +2,8 @@ import {
   Injectable
 } from "@angular/core";
 import {
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators
 } from "@angular/forms";
 
@@ -23,13 +23,13 @@ export class QuestionControlService {
     questions.forEach(question => {
 
       if (question.required) {
-        group[question.key] = new FormControl('', [Validators.required, Validators.minLength(question.minLength)]);
+        group[question.key] = new UntypedFormControl('', [Validators.required, Validators.minLength(question.minLength)]);
       } else {
-        group[question.key] = new FormControl('');
+        group[question.key] = new UntypedFormControl('');
       }
 
     });
-    return new FormGroup(group);
+    return new UntypedFormGroup(group);
 
   }
 

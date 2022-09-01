@@ -3,12 +3,36 @@
 .m-s-e__contenedor{
 
     font-size: (@font-size-base /1.1);
-    
+    max-width: 400px;
 
     &_form{
         display: flex;
         color: @A-color-prima;
-        flex-direction: column;
+        flex-wrap: wrap;
+
+        &_inputL{
+
+            label{
+                margin-bottom: .3rem;
+            }
+            input, textarea, select{
+                font-family: 'Mulish', sans-serif;
+                width: 100%;
+                padding:.4rem;
+                margin-bottom: .5rem;
+                border-radius: 10px;
+                
+                border:2pt solid transparent;
+                transition: all .5s;
+    
+                &:focus{
+                    border:2pt solid @blanco;
+                    outline: none;
+                    box-shadow: 0px 1px 10px 2px @A-Color-secun;
+                }
+            }
+
+        }
          label{
             margin-bottom: .3rem;
         }
@@ -91,7 +115,7 @@ fa-icon{
     justify-content: flex-end;
     position: relative;
     top: -1rem;
-    left: -2rem;
+    left: .5rem;
     & fa-icon{
         font-size: 1.7rem;
         padding-left: 1rem;

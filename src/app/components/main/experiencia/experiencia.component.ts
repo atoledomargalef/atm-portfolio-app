@@ -11,12 +11,14 @@ import { QuestionBase } from '../../forms/question-base';
 import { ProyQuestionService } from '../proyectos/proy-question.service';
 import { DatosExperienciaService } from 'src/app/services/datos-experiencia.service';
 import { Proyecto } from 'src/app/proyecto';
+import { AuthService } from 'src/app/services/auth.service';
+import { ExpQuestionService } from './expQuestion.service';
 
 @Component({
   selector: 'app-experiencia',
   templateUrl: './experiencia.component.html',
   styleUrls: ['./experiencia.component.less'],
-  providers:[ProyQuestionService]
+  providers:[ExpQuestionService]
 })
 export class ExperienciaComponent implements OnInit {
 
@@ -34,13 +36,16 @@ questions$: Observable<QuestionBase<any>[]>;
   showEditExp:boolean = false;
   showNewExp:boolean = false;
   
+  authUser: boolean = false;
+
   subscription?: Subscription;
   subscriptionNew?: Subscription;
   proyService: any;
 
   constructor(private expService : DatosExperienciaService ,
     private uiService: UiServiceService,
-    service:ProyQuestionService
+    private service:ExpQuestionService,
+    private auth:AuthService,
     ) {
 
     this.subscription = this.uiService.onToogleE()
@@ -55,6 +60,12 @@ questions$: Observable<QuestionBase<any>[]>;
     this.expService.obtenerExp().subscribe((res)=>{
       this.exps = res
     })
+    let currentUser = this.auth.UserAuth;
+    if (currentUser && currentUser.token){
+      this.authUser = true;
+    } else {
+      this.authUser = false;
+    }
 
 
   }
@@ -69,19 +80,19 @@ questions$: Observable<QuestionBase<any>[]>;
    }
 // CRUD del Proyecto
 
-borrarProy(proy:Proyecto){
-  this.proyService.borrarProy(proy)
+borrarExp(exp:Experiencia){
+  this.expService.borrarProy(exp)
   .subscribe(
     ()=> {
-      this.proys = this.proys.filter((p) => p.id !== proy.id)
+      this.exps = this.exps.filter((e) => e.id !== exp.id)
     }
   )
 }
-newProy(proy:Proyecto){
-  proy.persona_id=6;
-  this.proyService.newProy(proy)
-  .subscribe((proy: Proyecto) =>{
-    this.proys.push(proy)
+newExp(exp:Experiencia){
+  exp.persona_id=6;
+  this.expService.newExp(exp)
+  .subscribe((exp: Experiencia) =>{
+    this.exps.push(exp)
   })
 }
 

@@ -7,14 +7,14 @@
         </div>
         <p class="proy-cont_body-text">{{proy.descrip_proj}}</p>
         <div class="proy-cont_body_boton">
-            <app-boton-a text="Ver Proyecto"></app-boton-a>
+            <a href="{{proy.link_proj}}" target="blank"><app-boton-a class="boton-a" [text]="boton_ver"></app-boton-a></a>
         </div>
     </div>
     <div class="proy-cont_imgNdelete">
 
         
         
-        <div class="proy-cont__delete">
+        <div *ngIf="authUser" class="proy-cont__delete">
             <fa-icon 
             class="a"
             [icon]="faXmark"
@@ -22,10 +22,11 @@
             >
             </fa-icon>
         </div>
-        <div class="proy-cont_img">
+        <!-- <div class="proy-cont_img">
             <figure class="proy-cont_img-fig">
                 <img src="{{proy.img_proyecto}}" alt="{{proy.img_proyecto}}">
+                <p>{{proy.img_proyecto}}</p>
             </figure>
-        </div>
+        </div> -->
     </div>
 </div>
