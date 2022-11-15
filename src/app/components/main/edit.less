@@ -99,10 +99,10 @@ fa-icon{
     
     &.a{
         position: absolute;
-      color:@A-Color-secun;
+      color: @A-color-prima;
       transition: all .3s;
       &:hover{
-                color:  @A-color-prima;
+                color: @A-Color-secun;
          
       }
     }
@@ -122,11 +122,13 @@ fa-icon{
         
         &.a{
             position: absolute;
-          color:@A-Color-secun;
+          color:@A-color-prima;
           transition: all .3s;
           &:hover{
-                    color:  @A-color-prima;
-             
+                    color:  @A-Color-secun;
+
+                        animation: bounsePlus 1s ease 0s infinite;
+
           }
         }
       
@@ -140,7 +142,16 @@ fa-icon{
     justify-content: flex-end;
     position: relative;
     top: -1rem;
-    left: .5rem;
+    left: -2rem;
+    
+    & fa-icon{
+        &:hover{
+        
+            animation: shake 1s ease 0s infinite;
+            }
+    }
+    
+
 
 
   }

@@ -7,9 +7,10 @@
 @A-Color-secun: #7DAFE2;
 @A-Color-secun-light: #C9F7E3;
 @A-blend: linear-gradient(90deg ,#C9F7E3 ,#9ED4E3);
-@A-color-calido: rgb(240, 120, 90);
+@A-color-calido: rgb(236, 87, 82);
 @A-color-terc: #e4fff3;
 @A-blend-B:linear-gradient(90deg ,#e4fff3, #C9F7E3 ) ;
+@A-blend-B-opt:linear-gradient(90deg ,#eadbff,  #ebfdfc) ;
 @A-blend-D:linear-gradient(60deg ,#e4fff3, #bfe8f3 ) ;
 @A-blend-C:linear-gradient(90deg ,#c8faf7, #ebfdfc ,#d0fde9) ;
 @font-size-base: 1.2rem;
@@ -82,3 +83,22 @@ p{
 textarea{
     height: 100px;
 }
+
+@keyframes bounseCross {
+    0%   {transform: scale(1) translateX(0px) translateY(0px);}
+    50%  {transform: scale(1.1) translateX(-2px) translateY(2px) ;}
+    100% {transform: scale(1), translateX(0px),translateY(0px);}
+  }
+@keyframes bounsePlus {
+    0%   {transform: scale(1) translateX(0px) translateY(0px);}
+    50%  {transform: scale(1.1) translateX(-1px) translateY(-1px) ;}
+    100% {transform: scale(1), translateX(0px),translateY(0px);}
+  }
+
+  @keyframes shake {
+    0%   {transform: scale(1) rotateZ(0deg);}
+    30%   {transform: scale(1.05) rotateZ(1deg);}
+    50%   {transform: scale(1.1) rotateZ(-5deg);}
+    70%   {transform: scale(1.05) rotateZ(2deg);}
+    0%   {transform: scale(1) rotateZ(0deg);}
+  }

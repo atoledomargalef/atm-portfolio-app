@@ -33,6 +33,7 @@ export class UiServiceService {
   private subjectEP = new Subject < any > ();
   private subjectPI = new Subject < any > ();
   private subjectNF = new Subject < any > ();
+  private subjectEF = new Subject < any > ();
 
   constructor() {}
 
@@ -80,6 +81,11 @@ toogleNewForma(): void {
 
   this.showNewForma = !this.showNewForma;
   this.subjectNF.next(this.showNewForma);
+}
+toogleEditForma(): void {
+
+  this.showEditForma = !this.showEditForma;
+  this.subjectEF.next(this.showEditForma);
 }
 // Habs
 
@@ -149,8 +155,10 @@ onToogleE(): Observable < any > {
   // Forma
 
   onToogleNF(): Observable < any > {
-
     return this.subjectNF.asObservable();
+  }
+  onToogleEF(): Observable < any > {
+    return this.subjectEF.asObservable();
   }
 
 

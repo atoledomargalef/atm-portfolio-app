@@ -37,6 +37,17 @@
       border: 1pt solid @A-Color-secun;
       margin-right: 1rem;
       border-radius: 10px;
+
+      overflow: hidden;
+
+
+      & img{
+      min-width: 100px;
+      height: 100px;
+      object-fit: contain;
+      object-position: 50%;
+      }
+
     }
 
     &-refe {
@@ -45,12 +56,17 @@
   }
 
   &__data {
+    display: flex;
+    flex-direction: column;
 
     &-fecha {
       font-size: 1rem;
     }
 
-    &-descrip {}
+    &-descrip {
+
+
+    }
   }
 
 
@@ -142,6 +158,12 @@ fa-icon{
   
   &.a{
     color: @A-color-calido;
+    transition: all ease .3s;
+    
+    &:hover{
+      animation: bounseCross 1s ease 0s infinite;
+      opacity: .7;
+    }
   }
 
 }
@@ -173,9 +195,6 @@ fa-icon{
       
       transition: all 1s;
       &:hover{
-
-        
-        
         box-shadow: 0px 5px 30px -5px @A-Color-secun;
         transition: all 1s;
       }
@@ -203,4 +222,23 @@ fa-icon{
 
 
 
+}
+
+
+@media  screen and (max-width:480px) {
+
+  .exp__contenedor{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+  }
+  .proy-cont{
+    position: relative;
+  }
+  .proy-cont__delete{
+
+    position: absolute;
+    top:.5rem;
+    right: 1rem;
+  }
 }

@@ -17,13 +17,22 @@ export class FormQuestionService {
 
         const questions: QuestionBase<any>[] = [
 
-         
+          new HiddenQuestion({
+            key:'id',
+            value:''
+          }),
+          new HiddenQuestion({
+            key:'persona_id',
+            value:''
+          }),
+
             new TextBoxQuestion({
                 key: 'titulo',
                 label: 'Titulo',
                 placeholder: 'Escribe aquí el Titulo del proyecto',
                 required: true,
-                order: 1
+                maxLength:100,
+                order: 1,
               }),
               new TextareaQuestion({
                 key: 'descrip_for',
@@ -32,6 +41,7 @@ export class FormQuestionService {
                 placeholder: "Describe las tareas que realizaste",
                 required:true,
                 minLength:20,
+                maxLength:100,
                 order: 5
               }),
               new TextBoxQuestion({
@@ -39,6 +49,7 @@ export class FormQuestionService {
                 label: 'Hasta',
                 type: 'date',
                 required:true,
+                maxLength:100,
                 order: 3
               }),
               new TextBoxQuestion({
@@ -46,6 +57,7 @@ export class FormQuestionService {
                 label: 'Desde',
                 type: 'date',
                 required:true,
+                maxLength:100,
                 order: 2
               }),
               new TextBoxQuestion({
@@ -53,6 +65,7 @@ export class FormQuestionService {
                 label: 'Promedio',
                 type: 'number',
                 required:false,
+                maxLength:100,
                 order: 4
               }),
              

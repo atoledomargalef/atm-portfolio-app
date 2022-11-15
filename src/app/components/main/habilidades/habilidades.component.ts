@@ -22,10 +22,20 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HabilidadesComponent implements OnInit {
 
   habs: Habilidades[] = [];
+
+  
   
   habUni: Hab[] = [];
 
+  
   questions$: Observable<QuestionBase<any>[]>;
+  questionsValues$:any = {
+    id: 0,
+    habilidades: '',
+    descripcion: '',
+    porcentaje: 0,
+  };
+  questionsId$: number | undefined;
 
   botonName:string = "Guardar Nueva Habilidad";
   botonNameEdit:string = "Editar Habilidad";
@@ -35,6 +45,7 @@ export class HabilidadesComponent implements OnInit {
   showNUHab:boolean = false;
   authUser: boolean = false;
   cDrag:boolean = false;
+  useSelect:boolean = false;
   
   subscription?: Subscription;
   subscriptionNew?: Subscription;
@@ -51,15 +62,20 @@ export class HabilidadesComponent implements OnInit {
       .subscribe(value => this.showNUHab = value);
 
       this.questions$ = service.getQuestions();
+      
+     
     
    }
 
   ngOnInit(): void {
 
     this.habsService.obtenerHab().subscribe((res)=>{
-      this.habs = res
-      console.log(this.habs)
+      this.habs = res.sort(((a, b)=> { 
+        return  b.porcentaje  - a.porcentaje 
+       } ))
     })
+
+   
 
     let currentUser = this.auth.UserAuth;
     if (currentUser && currentUser.token){
@@ -73,6 +89,8 @@ export class HabilidadesComponent implements OnInit {
 
 
  // Toogles de aparicion
+
+  
 
  toogleEditHabs(){
   this.uiService.toogleEditHabs();
@@ -94,19 +112,36 @@ borrarHab( hab : Habilidades ){
       this.habs = this.habs.filter((p) => p.id !== hab.id)
     }
   )
+  this.habsService.obtenerHab().subscribe((res)=>{
+      this.habs = res})
 }
 newHab(hab: Habilidades){
-  console.log(hab)
   this.habsService.newHab(hab)
   .subscribe((hab) =>{
     this.habs.push(hab)
   })
+  setTimeout(()=> {this.habsService.obtenerHab().subscribe((res)=>{
+    this.habs = res})},1000) 
 }
 
+select(hab:Habilidades){
+  this.questionsValues$ = hab
 
-// DROP DRAG
-drop(event: CdkDragDrop<string[]>) {
-  moveItemInArray(this.habs, event.previousIndex, event.currentIndex);
+  this.useSelect = !this.useSelect
+  setTimeout(()=> {
+    this.useSelect=!this.useSelect
+  },500)
+  
+}
+
+editHab(hab: Habilidades){
+
+  this.habsService.editarHab(hab)
+  .subscribe((hab)=> this.habs.push(hab))
+
+  setTimeout(()=> {this.habsService.obtenerHab().subscribe((res)=>{
+    this.habs = res})},1000) 
+
 }
 
 }

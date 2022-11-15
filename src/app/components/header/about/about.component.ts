@@ -15,7 +15,7 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(){
   
-    this.persoServ.obtener().subscribe((res:any) => {
+    this.persoServ.obtenerPersonas$().subscribe((res:any) => {
 
       this.data=res[0]
   

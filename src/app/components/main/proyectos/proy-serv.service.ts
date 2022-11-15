@@ -25,35 +25,37 @@ export class ProyServService {
 
 
 rutaApi = 'https://polar-coast-76091.herokuapp.com';
-verProy = '/ver/proyectos';
-proyEdit = '/editar/proyectos';
-proyDelete = '/delete/proyecto';
-newLProy = '/new/proyecto';
+verProy = 'https://polar-coast-76091.herokuapp.com/ver/proyectos';
+proyEdit = 'https://polar-coast-76091.herokuapp.com/editar/proyectos2';
+proyDelete = 'https://polar-coast-76091.herokuapp.com/delete/proyecto';
+newLProy = 'https://polar-coast-76091.herokuapp.com/new/proyecto';
 
   constructor(private http:HttpClient) { 
 
     }
-
+  
+    useSelect:boolean = false
   obtenerProy(){
-    return this.http.get<Proyecto[]>( `${this.rutaApi}${this.verProy}`)
+    return this.http.get<Proyecto[]>( `${this.verProy}`)
   }
   borrarProy(proy: Proyecto): Observable<Proyecto>{
-    const url = `${this.rutaApi}${this.proyDelete}/${proy.id}`
-    return this.http.delete<Proyecto>( url )
+    const url = `${this.proyDelete}/${proy.id}`
+    return this.http.delete<Proyecto>( url , httpOptions)
   }
 
-  
   editarProy(proy: Proyecto): Observable<Proyecto>{
-    const url = `${this.rutaApi}${this.proyEdit}/${proy.id}`
-    return this.http.put<Proyecto>( url, proy, httpOptions)
+    this.useSelect = !this.useSelect
+    setTimeout(()=> {
+      this.useSelect=!this.useSelect
+    },500)
+    return this.http.put<Proyecto>( `${this.proyEdit}/${proy.id}`, proy, httpOptions)
   }
 
 
 
 newProy(proy:Proyecto){
-  
-  console.log(proy + "2")
-    this.http.post<Proyecto>(`${this.rutaApi}${this.newLProy}`, proy, httpOptions).subscribe(res => console.log(res))
+   const url = `${this.newLProy}`
+    this.http.post<Proyecto>(url, proy, httpOptions).subscribe()
 
   }
  // Error handling

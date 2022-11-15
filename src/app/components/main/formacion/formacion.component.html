@@ -1,20 +1,18 @@
 <div class="main__section__view">
 
-  <!-- <app-edit-button *ngIf="authUser" (btnClick)="toogleEditForma()"></app-edit-button> -->
+  <app-edit-button *ngIf="authUser" (btnClick)="toogleEditForma()"></app-edit-button>
   <app-add-button *ngIf="authUser" (btnClickN)="toogleNewForma()"></app-add-button>
 
   
     <h1>Formación</h1>
   
-    <div class="proyList" cdkDropList cdkListbox (cdkDropListDropped)="drop($event)">
+    <div class="proyList" >
       
         <app-for-item
-        *ngFor="let form of forms"
+            *ngFor="let form of forms"
             [form]="form"
-            cdkDrag
-            (onDeleteForm)="borrarForm(form)" 
-            [cdkDragDisabled]="!authUser"
-            cdkOption="form.id"
+            (onDeleteForma)="borrarForm(form)"
+            (click)="select(form)"
         ></app-for-item>
         
     </div>
@@ -22,9 +20,26 @@
   </div>
 
 
-<div class="main__section__edit" *ngIf="showEditProy">
+
+
+  <div class="main__section__edit " *ngIf="showEditForma">
     <div   >
       <app-close-button (btnClick)="toogleEditForma()"></app-close-button>
+      
+      <h3>Editar Formación</h3>
+
+      <p class="main__section__edit__item">Selecciona la formación a editar</p>
+      <app-d-form [questions]="questions$ | async"
+        [botonName]="botonName"
+        (formOutput)="editForma($event)" 
+        [questionsValues]="questionsValues$"
+        ></app-d-form>
+    </div>
+  </div>
+
+  <div class="main__section__edit new" *ngIf="showNewForma">
+    <div   >
+      <app-close-button (btnClick)="toogleNewForma()"></app-close-button>
       
       <h3>Nueva Formación</h3>
 
@@ -34,6 +49,5 @@
         ></app-d-form>
     </div>
   </div>
-
 
 

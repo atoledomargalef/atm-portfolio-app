@@ -1,33 +1,21 @@
 <header class="header">
-
-  <div class="header__portada">
-
-  </div>
+  <div class="header__portada"></div>
   <div class="header__info">
     <div class="header__info__cont-prof-about">
-
       <app-profile></app-profile>
       <app-about></app-about>
-
     </div>
-    
+
     <div class="header__info__botonera">
-        
-    
-
-      <app-boton-a text="Informacion Personal" (btnAClick)="tooglePerInfo()"></app-boton-a>
-      
+      <app-boton-a
+        text="Informacion Personal"
+        (btnAClick)="tooglePerInfo()"
+      ></app-boton-a>
     </div>
-    
 
     <div class="header__pers-info__cont">
-
-      <app-personal-info *ngIf="showPerInfo"> 
-      </app-personal-info>
-
-      <app-edit-per *ngIf="showEditPer"></app-edit-per>
-
+      <app-personal-info *ngIf="showPerInfo" [datos]="data"> </app-personal-info>
+      <app-edit-per *ngIf="showEditPer" [data]="data"></app-edit-per>
     </div>
   </div>
-
 </header>

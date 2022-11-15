@@ -16,31 +16,11 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 })
 export class MainComponent implements OnInit {
 
-  
-  exps : Experiencia[] = [];
-
   constructor(
-    
-    private dExp : DatosExperienciaService,
     ) { }
 
   ngOnInit( ): void {
 
-
-
-    this.dExp.obtenerExp().subscribe((res)=>{
-      this.exps = res
-      console.log(this.exps)
-    })
-
-   
-
-   
-
-
-  }
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.exps, event.previousIndex, event.currentIndex);
-  }
+    }
 
 }

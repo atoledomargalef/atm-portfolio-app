@@ -23,7 +23,7 @@ export class QuestionControlService {
     questions.forEach(question => {
 
       if (question.required) {
-        group[question.key] = new UntypedFormControl('', [Validators.required, Validators.minLength(question.minLength)]);
+        group[question.key] = new UntypedFormControl('', [Validators.required, Validators.minLength(question.minLength), Validators.maxLength(question.maxLength)]);
       } else {
         group[question.key] = new UntypedFormControl('');
       }

@@ -1,24 +1,18 @@
 <div class="main__section__view">
 
     <app-add-button *ngIf="authUser" (btnClickN)="toogleNewHabs()"></app-add-button>
-    <!-- <app-edit-button *ngIf="authUser" (btnClick)="toogleEditHabs()"></app-edit-button> -->
+    <app-edit-button *ngIf="authUser" (btnClick)="toogleEditHabs()"></app-edit-button>
   
     <h1>Habilidades</h1>
   
-    <div  class="hab__cont"
-        cdkDropList 
-        (cdkDropListDropped)="drop($event)">
-      
+    <div  class="hab__cont" >
             <app-hab-item
             *ngFor="let hab of habs"
             [hab]="hab"
             (onDeleteHab)="borrarHab(hab)"
-            cdkDrag
-            [cdkDragDisabled]="!authUser"
+            (click)="select(hab)"
             ></app-hab-item>
-    
     </div>
-
 </div>
 
 
@@ -32,8 +26,8 @@
       <app-close-button (btnClick)="toogleEditHabs()"></app-close-button>
   
       <h3 >Editar Habilidad</h3>
-      <p class="main__section__edit__item">Item a editar:  </p>
-      <app-d-form [questions]="questions$ | async" (formOutput)="newHab($event)" [botonName]="botonNameEdit"></app-d-form>
+      <p class="main__section__edit__item">Selecciona la habilidad a editar</p>
+      <app-d-form [useSelect]="useSelect" [questions]="questions$ | async" (formOutput)="editHab($event)" [questionsValues]="questionsValues$" [botonName]="botonNameEdit"></app-d-form>
     </div>
   </div>
   

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,9 +13,10 @@ import { ProfileComponent } from '../profile/profile.component';
 })
 export class PersonalInfoComponent implements OnInit {
   
-  datos:any={}
   
-  @Input() dato: any = this.datos[0];
+
+  @Input() datos: any = {}
+
 
   showEditPer:boolean = false;
   
@@ -24,9 +25,9 @@ export class PersonalInfoComponent implements OnInit {
   subscription?: Subscription;
 
   faXmark = faXmark;
+  questionsValues$:any;
 
   constructor( private persoServ : DatosPersonaService , private uiService : UiServiceService, private auth:AuthService ) {
-
     this.subscription = this.uiService.onToogleEP()
     .subscribe(value => this.showEditPer = value);
   }
@@ -34,9 +35,8 @@ export class PersonalInfoComponent implements OnInit {
 
 
   ngOnInit(): void{
-    this.persoServ.obtener().subscribe((res:any) => {
-      this.datos=res[0]
-    });
+  
+    this.obtenerData()
     let currentUser = this.auth.UserAuth;
     if (currentUser && currentUser.token){
       this.authUser = true;
@@ -44,7 +44,19 @@ export class PersonalInfoComponent implements OnInit {
       this.authUser = false;
     }
   }
+
+
+
+  obtenerData(){
+  this.persoServ.obtenerPersonas$().subscribe((res:any) => {
+    this.datos=res[0]
+  })
+}
+
   toogleEditPer(){
     this.uiService.toogleEditPer();
+    console.log(this.datos)
    }
+
+
 }

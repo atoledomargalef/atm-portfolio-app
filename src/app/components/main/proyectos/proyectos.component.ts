@@ -27,6 +27,15 @@ export class ProyectosComponent implements OnInit {
   public img: any;
   
   questions$: Observable<QuestionBase<any>[]>;
+  questionsValues$:any = {
+    id : 0,
+    titulo : '',
+    descrip_proj : '',
+    img_proyecto : '',
+    link_proj : '',
+    habilidades : '',
+    persona_id : 6,
+  };
 
   botonName:string = "Guardar Nuevo Proyecto";
   botonNameEdit:string = "Editar Proyecto";
@@ -40,6 +49,7 @@ export class ProyectosComponent implements OnInit {
   subscriptionN?: Subscription;
 
   authUser: boolean = false;
+  useSelect:boolean = false;
 
   public imagenRepo : any;
 
@@ -66,7 +76,6 @@ export class ProyectosComponent implements OnInit {
   
     this.proyService.obtenerProy().subscribe((res)=>{
       this.proys = res
-      console.log(this.proys)
     })
 
     let currentUser = this.auth.UserAuth;
@@ -101,12 +110,39 @@ export class ProyectosComponent implements OnInit {
         this.proys = this.proys.filter((p) => p.id !== proy.id)
       }
     )
+    setTimeout(()=>{     this.proyService.obtenerProy().subscribe((res)=>{
+      this.proys = res
+    }) },1000)
+
   }
+
+  select(proy:Proyecto){
+    this.questionsValues$ = proy
+  
+    this.useSelect = !this.useSelect
+    setTimeout(()=> {
+      this.useSelect=!this.useSelect
+    },500)
+    
+  }
+
+  editProy(proy:Proyecto){
+
+    this.proyService.editarProy(proy)
+    .subscribe((proy)=> this.proys.push(proy))
+  
+    setTimeout(()=>{     this.proyService.obtenerProy().subscribe((res)=>{
+      this.proys = res
+    }) },1000)
+  
+  }
+
   newProy(proy:Proyecto){
     proy.persona_id=6;
-  
-     this.proyService.newProy(proy);
-
+     this.proyService.newProy(proy)
+     setTimeout(()=>{     this.proyService.obtenerProy().subscribe((res)=>{
+      this.proys = res
+    }) },1000)
   }
 
   // newImg(img:Imagen){
@@ -115,11 +151,5 @@ export class ProyectosComponent implements OnInit {
   //     this.img.push(res)
   //   })
   // }
-
-
-  // DROP DRAG
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.proys, event.previousIndex, event.currentIndex);
-  }
 
 }

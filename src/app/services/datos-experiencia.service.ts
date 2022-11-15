@@ -19,8 +19,9 @@ export class DatosExperienciaService {
 
   rutaApiExp = 'https://polar-coast-76091.herokuapp.com/ver/experiencias';
   rutaApiNewExp = 'https://polar-coast-76091.herokuapp.com/new/experiencia';
-  rutaApi = 'https://polar-coast-76091.herokuapp.com';
-  expDelete = '/borrar/experiencia';
+  rutaApiEditExp = 'https://polar-coast-76091.herokuapp.com/editar/experiencia2';
+  rutaApi = 'https://polar-coast-76091.herokuapp.com/';
+  expDelete = 'https://polar-coast-76091.herokuapp.com/delete/experiencia/';
 
 
   constructor(private http : HttpClient) { }
@@ -31,16 +32,19 @@ export class DatosExperienciaService {
     return this.http.get<Experiencia[]>( this.rutaApiExp)
   }
 
-  newExp(exp:Experiencia):Observable<Experiencia>{
-  
-    
+    newExp(exp:Experiencia):Observable<Experiencia>{
+      console.log(exp)
       return this.http.post<Experiencia>(this.rutaApiNewExp, exp, httpOptions)
-  
+    }
+    editarExp(exp:Experiencia):Observable<Experiencia>{
+      console.log(exp)
+      const url = `${this.rutaApiEditExp}/${exp.id}`
+      return this.http.put<Experiencia>(url, exp, httpOptions)
     }
 
-    borrarProy(exp: Experiencia): Observable<Experiencia>{
-      const url = `${this.rutaApi}${this.expDelete}/${exp.id}`
-      return this.http.delete<Experiencia>( url , httpOptions)
-    }
+  borrarExp(exp: Experiencia): Observable<Experiencia>{
+      const url = `${this.expDelete}${exp.id}`
+      return this.http.delete<Experiencia>(url, httpOptions)
+  }
 
 }

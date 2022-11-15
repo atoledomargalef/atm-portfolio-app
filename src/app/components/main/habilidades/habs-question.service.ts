@@ -16,10 +16,15 @@ export class HabsQuestionService {
 
 
     getQuestions() {
-
+      
         const questions: QuestionBase<any>[] = [
 
-         
+
+            new HiddenQuestion({
+              key: 'id',
+              value: ''
+            }),
+
             new DropdownQuestion({
                 key: 'habilidades',
                 label: 'Habilidades',
@@ -37,7 +42,10 @@ export class HabsQuestionService {
                     { key:'Illustrator',value:'Illustrator'},
                 ],
                 required: true,
-                order: 1
+                
+                maxLength:100,
+                order: 1,
+                value:''
               }),
               new TextBoxQuestion({
                 key: 'descripcion',
@@ -45,14 +53,18 @@ export class HabsQuestionService {
                 type: 'text',
                 required:true,
                 maxLength:100,
-                order: 3
+                order: 3,
+                value: ''
               }),
               new TextBoxQuestion({
                 key: 'porcentaje',
                 label: 'Porcentaje',
                 type: 'number',
                 required:true,
-                order: 2
+                
+                maxLength:100,
+                order: 2,
+                value:''
               })
             
 

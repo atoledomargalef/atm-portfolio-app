@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { DatosPersonaService } from 'src/app/services/datos-persona.service';
@@ -11,6 +11,7 @@ import { UiServiceService } from 'src/app/services/ui/ui-service.service';
 })
 export class HeaderComponent implements OnInit {
 
+  data:any;
 
   showEditPer:boolean = false;
   showPerInfo:boolean = false;
@@ -18,27 +19,25 @@ export class HeaderComponent implements OnInit {
   subscription?: Subscription;
   subscriptionI?: Subscription;
 
-  constructor( private uiService: UiServiceService ) {
+  useSelect:boolean = false;
+  constructor( private uiService: UiServiceService ,private persoServ: DatosPersonaService ) {
     this.subscription = this.uiService.onToogleEP()
     .subscribe(value => this.showEditPer = value);
 
     this.subscriptionI = this.uiService.onTooglePI()
     .subscribe(value => this.showPerInfo = value);
-    
-   }
-
-  ngOnInit(): void {
-
-
-
-
-    
+    this.useSelect = this.persoServ.useSelect
+   
   }
 
 
+  ngOnInit():void {
+    this.persoServ.obtenerPersonas$().subscribe((res:any) => {
+      this.data=res[0]})
+  }
+  
    tooglePerInfo(){
     this.uiService.tooglePerInfo();
    }
-
 
 }

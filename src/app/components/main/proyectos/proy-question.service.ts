@@ -17,12 +17,21 @@ export class ProyQuestionService {
 
         const questions: QuestionBase<any>[] = [
 
-         
+          new HiddenQuestion({
+            key:'id',
+            value:''
+          }),
+          new HiddenQuestion({
+            key:'persona_id',
+            value:'6'
+          }),
             new TextBoxQuestion({
                 key: 'titulo',
                 label: 'Titulo',
                 placeholder: 'Escribe aquí el Titulo del proyecto',
                 required: true,
+                
+                maxLength:100,
                 order: 1
               }),
               new TextareaQuestion({
@@ -31,6 +40,8 @@ export class ProyQuestionService {
                 type: 'text',
                 required:true,
                 minLength:20,
+                
+                maxLength:100,
                 order: 5
               }),
               new TextBoxQuestion({
@@ -38,6 +49,8 @@ export class ProyQuestionService {
                 label: 'Link al Proyecto',
                 type: 'text',
                 required:true,
+                
+                maxLength:200,
                 order: 3
               }),
               new TextBoxQuestion({
@@ -45,6 +58,8 @@ export class ProyQuestionService {
                 label: 'Habilidades',
                 type: 'text',
                 required:true,
+                
+                maxLength:100,
                 order: 2
               }),
               // new FileQuestion({

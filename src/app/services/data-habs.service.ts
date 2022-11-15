@@ -26,16 +26,19 @@ export class DataHabsService {
     obtenerHab(){
       return this.http.get<Habilidades[]>( this.rutaApiHabs)
     }
+  
+    newHab(hab: Habilidades): Observable<Habilidades>{
+      return this.http.post<Habilidades>( this.rutaApiNewHabs, hab, httpOptions)
+    }
     borrarHab(hab: Habilidades): Observable<Habilidades>{
       const url = `${this.rutaApiHabsDelete}/${hab.id}`
       return this.http.delete<Habilidades>( url )
     }
+
+    
+
     editarHab(hab: Habilidades): Observable<Habilidades>{
-      const url = `${this.rutaApiHabsEdit}/${hab.id}`
+      const url = `${this.rutaApiHabsEdit}/${hab.id}?porcentaje=${hab.porcentaje}&habilidades=${hab.habilidades}&descripcion=${hab.descripcion}`
       return this.http.put<Habilidades>( url, hab, httpOptions)
     }
-    newHab(hab: Habilidades): Observable<Habilidades>{
-      return this.http.post<Habilidades>( this.rutaApiNewHabs, hab, httpOptions)
-    }
-    
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 import { DatosPersonaService } from 'src/app/services/datos-persona.service';
 import { Persona } from 'src/app/persona';
 import { Observable } from 'rxjs';
@@ -8,24 +8,20 @@ import { Observable } from 'rxjs';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.less']
+
 })
 
 export class ProfileComponent implements OnInit{
 
-  constructor(private persoServ: DatosPersonaService) { }
-
-
-  data: any = {}
-
-  ngOnInit(){
+  data:any
   
-    this.persoServ.obtener().subscribe((res:any) => {
-
-      this.data=res[0]
-  
-    });
+  constructor(private persoServ: DatosPersonaService) {
+    this.persoServ.obtenerPersonas$().subscribe((res:any) => {
+      this.data=res[0]})
   }
-
-
+  
+  ngOnInit(){
+    
+  }
 
 }

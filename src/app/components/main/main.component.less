@@ -33,7 +33,7 @@
             width: fit-content;
             height: fit-content;
             padding: 2rem;
-            background:@A-blend-B;
+            background:@A-blend-B-opt;
             
             border: 1pt solid @A-Color-secun;
             
@@ -55,3 +55,12 @@
     background: @A-blend-C;
     
 }
+
+@media  screen and (max-width:480px) {
+
+    .main__section{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+  }

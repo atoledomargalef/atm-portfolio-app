@@ -17,12 +17,21 @@ export class ExpQuestionService {
 
         const questions: QuestionBase<any>[] = [
 
-         
+            new HiddenQuestion({
+              key:'id',
+              value:''
+            }),
+            new HiddenQuestion({
+              key:'persona_id',
+              value:'6'
+            }),
+
             new TextBoxQuestion({
                 key: 'titulo',
                 label: 'Titulo',
                 placeholder: 'Escribe aquí el Titulo del proyecto',
                 required: true,
+                maxLength:100,
                 order: 1
               }),
               new TextareaQuestion({
@@ -32,6 +41,8 @@ export class ExpQuestionService {
                 placeholder: "Describe las tareas que realizaste",
                 required:true,
                 minLength:20,
+                
+                maxLength:100,
                 order: 5
               }),
               new TextBoxQuestion({
@@ -39,6 +50,8 @@ export class ExpQuestionService {
                 label: 'Hasta',
                 type: 'date',
                 required:true,
+                
+                maxLength:100,
                 order: 3
               }),
               new TextBoxQuestion({
@@ -46,6 +59,8 @@ export class ExpQuestionService {
                 label: 'Desde',
                 type: 'date',
                 required:true,
+                
+                maxLength:100,
                 order: 2
               }),
               new TextBoxQuestion({
