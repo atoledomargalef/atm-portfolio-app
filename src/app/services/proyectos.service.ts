@@ -30,7 +30,7 @@ export class ProyectosService {
   public imagenRepo : any;
 
 
-rutaApi = 'https://polar-coast-76091.herokuapp.com';
+rutaApi = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io';
 verProy = '/ver/proyectos';
 proyEdit = '/editar/proyectos';
 proyDelete = '/delete/proyecto';

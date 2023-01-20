@@ -142,7 +142,7 @@ export class ProyectosComponent implements OnInit {
      this.proyService.newProy(proy)
      setTimeout(()=>{     this.proyService.obtenerProy().subscribe((res)=>{
       this.proys = res
-    }) },1000)
+    }) },1500)
   }
 
   // newImg(img:Imagen){

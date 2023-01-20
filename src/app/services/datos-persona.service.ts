@@ -24,8 +24,8 @@ useSelect:boolean = false
  
   // https://polar-coast-76091.herokuapp.com
   // http://localhost:8080/ver/personas
-rutaApi = 'https://polar-coast-76091.herokuapp.com/ver/personas'
-rutaApiEdit = 'https://polar-coast-76091.herokuapp.com/editar/persona2/6'
+rutaApi = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/ver/personas'
+rutaApiEdit = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/editar/persona2/6'
 
 data:any = []
 

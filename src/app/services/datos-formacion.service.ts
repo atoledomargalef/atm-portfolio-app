@@ -22,12 +22,12 @@ export class DatosFormacionService {
 
 private filePath:any;
 // private downloadURL: Observable<string>;
-private rutaApiFor = 'https://polar-coast-76091.herokuapp.com/ver/formacion';
+private rutaApiFor = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/ver/formacion';
 private verForm = '/ver/formacion'
-private rutaApi = 'https://polar-coast-76091.herokuapp.com';
-private rutaApinew = 'https://polar-coast-76091.herokuapp.com/new/formacion';
-private formDelete = 'https://polar-coast-76091.herokuapp.com/delete/formacion';
-private formEdit = 'https://polar-coast-76091.herokuapp.com/editar/formacion2';
+private rutaApi = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io';
+private rutaApinew = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/new/formacion';
+private formDelete = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/delete/formacion';
+private formEdit = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/editar/formacion2';
 
   constructor( private http:HttpClient, private storage : AngularFireStorage) {
 

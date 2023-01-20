@@ -17,11 +17,11 @@ const httpOptions = {
 export class DatosExperienciaService {
 
 
-  rutaApiExp = 'https://polar-coast-76091.herokuapp.com/ver/experiencias';
-  rutaApiNewExp = 'https://polar-coast-76091.herokuapp.com/new/experiencia';
-  rutaApiEditExp = 'https://polar-coast-76091.herokuapp.com/editar/experiencia2';
-  rutaApi = 'https://polar-coast-76091.herokuapp.com/';
-  expDelete = 'https://polar-coast-76091.herokuapp.com/delete/experiencia/';
+  rutaApiExp = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/ver/experiencias';
+  rutaApiNewExp = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/new/experiencia';
+  rutaApiEditExp = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/editar/experiencia2';
+  rutaApi = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/';
+  expDelete = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/delete/experiencia/';
 
 
   constructor(private http : HttpClient) { }

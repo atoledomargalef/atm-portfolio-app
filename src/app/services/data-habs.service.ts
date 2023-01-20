@@ -15,10 +15,10 @@ const httpOptions = {
 })
 export class DataHabsService {
     
-  rutaApiHabs = 'https://polar-coast-76091.herokuapp.com/ver/habilidades';
-  rutaApiHabsEdit = 'https://polar-coast-76091.herokuapp.com/editar/habilidades';
-  rutaApiHabsDelete = 'https://polar-coast-76091.herokuapp.com/delete/habilidades';
-  rutaApiNewHabs = 'https://polar-coast-76091.herokuapp.com/new/habilidades';
+  rutaApiHabs = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/ver/habilidades';
+  rutaApiHabsEdit = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/editar/habilidades';
+  rutaApiHabsDelete = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/delete/habilidades';
+  rutaApiNewHabs = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/new/habilidades';
   
     constructor(private http:HttpClient) { }
   
