@@ -1,4 +1,4 @@
-export interface Proyecto{
+export default interface Proyecto{
 
     id? : number;
     titulo : string;

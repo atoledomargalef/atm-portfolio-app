@@ -1,5 +1,6 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
+  "include": ["src/**/*.json", "src/app/formacion.json.ts", "src/app/personas.json.ts", "src/app/experiencias.json.ts", "src/app/habilidades.json.ts"],
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
@@ -14,7 +15,6 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2020",

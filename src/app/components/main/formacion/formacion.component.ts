@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { faTemperatureHigh, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { Formacion } from 'src/app/formacion';
+import Formacion from '../../../formacion';
 
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { Observable, Subscription } from 'rxjs';
@@ -10,6 +10,7 @@ import { DatosFormacionService } from 'src/app/services/datos-formacion.service'
 import { AuthService } from 'src/app/services/auth.service';
 import { UiServiceService } from 'src/app/services/ui/ui-service.service';
 import { FormQuestionService } from './formQuestion.service';
+import {Formaciones} from '../../../formacion.json'
 
 @Component({
   selector: 'app-formacion',
@@ -68,11 +69,18 @@ faXmark = faXmark;
   }
 
   ngOnInit(): void {
-    this.dFor.obtenerFor().subscribe((res)=>{
-      this.forms = res.sort(((a, b)=> { 
-        return  b.promedio  - a.promedio 
-       } ))
-    })
+
+
+    // this.dFor.obtenerFor().subscribe((res)=>{
+    //   this.forms = res.sort(((a, b)=> { 
+    //     return  b.promedio  - a.promedio 
+    //    } ))
+    // })
+
+    this.forms = Formaciones.sort((a: { promedio: number; }, b: { promedio: number; })=> { 
+          return  b.promedio  - a.promedio 
+         } )
+
     let currentUser = this.auth.UserAuth;
     if (currentUser && currentUser.token){
       this.authUser = true;
@@ -82,6 +90,8 @@ faXmark = faXmark;
       this.authUser = false;
     }
   }
+
+
 
   toogleNewForma(){
     this.uiService.toogleNewForma();

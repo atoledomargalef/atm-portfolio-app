@@ -1,16 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Persona } from '../persona';
-import { Experiencia } from '../experiencia';
-import { Formacion } from '../formacion';
-import { Proyecto } from '../proyecto';
-import { Imagen } from '../img';
-import { FileI } from '../fileI';
 import { catchError, finalize, map, retry, switchMap, throwError } from 'rxjs';
-import { Firestore } from '@angular/fire/firestore';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/compat/storage';
+import Proyecto from '../proyecto';
 
 
 const httpOptions = {
@@ -30,7 +22,8 @@ export class ProyectosService {
   public imagenRepo : any;
 
 
-rutaApi = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io';
+  
+rutaApi = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/';
 verProy = '/ver/proyectos';
 proyEdit = '/editar/proyectos';
 proyDelete = '/delete/proyecto';

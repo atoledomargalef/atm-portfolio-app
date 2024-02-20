@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { Habilidades } from 'src/app/habilidades';
+import  Habilidades  from 'src/app/habilidades';
 import { AuthService } from 'src/app/services/auth.service';
 import { UiServiceService } from 'src/app/services/ui/ui-service.service';
 

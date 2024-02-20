@@ -1,9 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Persona } from '../persona';
-import { Experiencia } from '../experiencia';
-import { Formacion } from '../formacion';
+import  Persona  from '../persona';
 import { catchError, Subject, throwError } from 'rxjs';
 
 
@@ -20,30 +18,30 @@ const httpOptions = {
 })
 export class DatosPersonaService {
 
-useSelect:boolean = false
+// useSelect:boolean = false
  
   // https://polar-coast-76091.herokuapp.com
   // http://localhost:8080/ver/personas
-rutaApi = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/ver/personas'
-rutaApiEdit = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/editar/persona2/6'
+// rutaApi = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/ver/personas'
+// rutaApiEdit = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/editar/persona2/6'
 
-data:any = []
+// data:any = []
 
 
 
-  constructor( private http:HttpClient) { }
+  // constructor( private http:HttpClient) { }
 
-  obtenerPersonas$(){
-    return this.http.get<Persona[]>( this.rutaApi, httpOptions)
-  }
+  // obtenerPersonas$(){
+  //   return this.http.get<Persona[]>( this.rutaApi, httpOptions)
+  // }
 
-  editarPer(per :Persona): Observable<Persona>{
-    this.useSelect = !this.useSelect
-    setTimeout(()=> {
-      this.useSelect=!this.useSelect
-    },500)
-    const url = `${this.rutaApiEdit}`
-    return this.http.put<Persona>( url, per, httpOptions)
-  }
+  // editarPer(per :Persona): Observable<Persona>{
+  //   this.useSelect = !this.useSelect
+  //   setTimeout(()=> {
+  //     this.useSelect=!this.useSelect
+  //   },500)
+  //   const url = `${this.rutaApiEdit}`
+  //   return this.http.put<Persona>( url, per, httpOptions)
+  // }
 
 }

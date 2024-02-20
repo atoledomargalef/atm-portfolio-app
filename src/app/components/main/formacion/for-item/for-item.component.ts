@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { Formacion } from 'src/app/formacion';
+import Formacion from '../../../../formacion';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({

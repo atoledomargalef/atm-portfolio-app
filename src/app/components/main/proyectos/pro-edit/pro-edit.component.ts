@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Proyecto } from 'src/app/proyecto';
+import Proyecto from '../../../../proyecto';
 import { Subscription } from 'rxjs';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { UiServiceService } from 'src/app/services/ui/ui-service.service';

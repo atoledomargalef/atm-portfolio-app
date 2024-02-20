@@ -1,9 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Proyecto } from 'src/app/proyecto';
 import {faXmark } from '@fortawesome/free-solid-svg-icons';
 import { UiServiceService } from 'src/app/services/ui/ui-service.service';
 import { Subscription } from 'rxjs';
-import { Experiencia } from 'src/app/experiencia';
+import  Experiencia  from 'src/app/experiencia';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({

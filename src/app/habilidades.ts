@@ -1,4 +1,4 @@
-export interface Habilidades{
+export default interface Habilidades{
 
     id? : number;
     porcentaje: number;

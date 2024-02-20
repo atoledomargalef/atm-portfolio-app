@@ -3,6 +3,9 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { DatosPersonaService } from 'src/app/services/datos-persona.service';
 import { UiServiceService } from 'src/app/services/ui/ui-service.service';
+import  Persona  from '../../persona';
+import {Persons} from '../../personas.json'
+
 
 @Component({
   selector: 'app-header',
@@ -26,14 +29,16 @@ export class HeaderComponent implements OnInit {
 
     this.subscriptionI = this.uiService.onTooglePI()
     .subscribe(value => this.showPerInfo = value);
-    this.useSelect = this.persoServ.useSelect
+    // this.useSelect = this.persoServ.useSelect
    
   }
 
 
   ngOnInit():void {
-    this.persoServ.obtenerPersonas$().subscribe((res:any) => {
-      this.data=res[0]})
+    // this.persoServ.obtenerPersonas$().subscribe((res:any) => {
+    //   this.data=res[0]})
+
+    this.persoServ = Persons[0]
   }
   
    tooglePerInfo(){

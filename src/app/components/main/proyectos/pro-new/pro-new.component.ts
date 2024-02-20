@@ -4,9 +4,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import {
-  Proyecto
-} from 'src/app/proyecto';
+import Proyecto from '../../../../proyecto';
 import {
   Subscription
 } from 'rxjs';

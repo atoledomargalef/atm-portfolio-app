@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { Experiencia } from 'src/app/experiencia';
+import  Experiencia  from 'src/app/experiencia';
 import { DatosPersonaService } from 'src/app/services/datos-persona.service';
 
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
@@ -10,9 +10,10 @@ import { QuestionService } from '../../forms/question.service';
 import { QuestionBase } from '../../forms/question-base';
 import { ProyQuestionService } from '../proyectos/proy-question.service';
 import { DatosExperienciaService } from 'src/app/services/datos-experiencia.service';
-import { Proyecto } from 'src/app/proyecto';
 import { AuthService } from 'src/app/services/auth.service';
 import { ExpQuestionService } from './expQuestion.service';
+import { Experiencias } from '../../../experiencias.json';
+
 
 @Component({
   selector: 'app-experiencia',
@@ -24,7 +25,6 @@ export class ExperienciaComponent implements OnInit {
 
 
   exps: Experiencia[] = [];
-  proys: Proyecto[] = [];
 
   questions$: Observable<QuestionBase<any>[]>;
   questionsValues$: any = {
@@ -47,7 +47,6 @@ export class ExperienciaComponent implements OnInit {
 
   subscription?: Subscription;
   subscriptionNew?: Subscription;
-  proyService: any;
   useSelect: boolean = false;
 
   constructor(private expService: DatosExperienciaService,
@@ -64,16 +63,26 @@ export class ExperienciaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.expService.obtenerExp().subscribe((res) => {
-      this.exps = res.sort(((a, b) => {
-        if (b.fecha_final > a.fecha_final) {
-          return 1
-        } if (b.fecha_final < a.fecha_final) {
-          return -1
-        }
-        return 0
-      }))
-    })
+
+    this.exps = Experiencias.sort(((a, b) => {
+      if (b.fecha_final > a.fecha_final) {
+        return 1
+      } if (b.fecha_final < a.fecha_final) {
+        return -1
+      }
+      return 0
+    }))
+
+    // this.expService.obtenerExp().subscribe((res) => {
+    //   this.exps = res.sort(((a, b) => {
+    //     if (b.fecha_final > a.fecha_final) {
+    //       return 1
+    //     } if (b.fecha_final < a.fecha_final) {
+    //       return -1
+    //     }
+    //     return 0
+    //   }))
+    // })
     let currentUser = this.auth.UserAuth;
     if (currentUser && currentUser.token) {
       this.authUser = true;

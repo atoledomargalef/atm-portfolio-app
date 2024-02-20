@@ -4,7 +4,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Observable, Subscription } from 'rxjs';
 import { QuestionBase } from 'src/app/components/forms/question-base';
 import { ProyQuestionService } from 'src/app/components/main/proyectos/proy-question.service';
-import { Persona } from 'src/app/persona';
+import  Persona  from 'src/app/persona';
 import { DatosPersonaService } from 'src/app/services/datos-persona.service';
 import { UiServiceService } from 'src/app/services/ui/ui-service.service';
 import { PerQuestionService } from '../per-question.service';
@@ -37,16 +37,16 @@ export class EditPerComponent implements OnInit {
     
     this.subscription = this.uiService.onToogleEP()
     .subscribe(value => this.showEditPer = value);
-    this.obtenerData()
+    // this.obtenerData()
     
     this.questions$ = this.service.getQuestions();
     
    }
 
-   obtenerData() :void {
-    this.perService.obtenerPersonas$().subscribe((res:any) => {
-      this.datos=res[0]})
-   }
+  //  obtenerData() :void {
+  //   this.perService.obtenerPersonas$().subscribe((res:any) => {
+  //     this.datos=res[0]})
+  //  }
 
   ngOnInit(): void {
     this.questions$ = this.service.getQuestions();
@@ -54,15 +54,15 @@ export class EditPerComponent implements OnInit {
   }
 
   ngOnChange():void{
-    this.obtenerData()
+    // this.obtenerData()
   }
 
   toogleEditPer(){
     this.uiService.toogleEditPer();
    }
 
-   editPer(per:Persona){
-    this.perService.editarPer(per).subscribe((per)=> per)
-    location.reload()
-  }
+  //  editPer(per:Persona){
+  //   this.perService.editarPer(per).subscribe((per)=> per)
+  //   location.reload()
+  // }
 }

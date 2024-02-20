@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Habilidades } from '../habilidades';
+import  Habilidades  from '../habilidades';
 
 const httpOptions = {
   headers: new HttpHeaders({ 
@@ -15,10 +15,10 @@ const httpOptions = {
 })
 export class DataHabsService {
     
-  rutaApiHabs = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/ver/habilidades';
-  rutaApiHabsEdit = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/editar/habilidades';
-  rutaApiHabsDelete = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/delete/habilidades';
-  rutaApiNewHabs = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/new/habilidades';
+  rutaApiHabs = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/ver/habilidades';
+  rutaApiHabsEdit = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/editar/habilidades';
+  rutaApiHabsDelete = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/delete/habilidades';
+  rutaApiNewHabs = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/new/habilidades';
   
     constructor(private http:HttpClient) { }
   

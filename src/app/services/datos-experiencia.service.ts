@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Persona } from '../persona';
-import { Experiencia } from '../experiencia';
-import { Formacion } from '../formacion';
+import  Experiencia  from '../experiencia';
+
+
 const httpOptions = {
   headers: new HttpHeaders({ 
     'Content-Type': 'application/json',
@@ -17,11 +17,11 @@ const httpOptions = {
 export class DatosExperienciaService {
 
 
-  rutaApiExp = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/ver/experiencias';
-  rutaApiNewExp = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/new/experiencia';
-  rutaApiEditExp = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/editar/experiencia2';
-  rutaApi = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/';
-  expDelete = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/delete/experiencia/';
+  rutaApiExp = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/ver/experiencias';
+  rutaApiNewExp = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/new/experiencia';
+  rutaApiEditExp = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/editar/experiencia2';
+  rutaApi = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/';
+  expDelete = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/delete/experiencia/';
 
 
   constructor(private http : HttpClient) { }

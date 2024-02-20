@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Proyecto } from 'src/app/proyecto';
+
 import { ProyectosService } from 'src/app/services/proyectos.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { UiServiceService } from 'src/app/services/ui/ui-service.service';
@@ -8,10 +8,11 @@ import { QuestionService } from '../../forms/question.service';
 import { QuestionBase } from '../../forms/question-base';
 import { HabsQuestionService } from './habs-question.service';
 import { DataHabsService } from 'src/app/services/data-habs.service';
-import { Habilidades } from 'src/app/habilidades';
-import { Hab } from 'src/app/hab';
+import  Habilidades  from 'src/app/habilidades';
 import { DataHabService } from 'src/app/services/data-hab.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { HabilidadesLote } from '../../../habilidades.json'
+
 
 @Component({
   selector: 'app-habilidades',
@@ -25,7 +26,6 @@ export class HabilidadesComponent implements OnInit {
 
   
   
-  habUni: Hab[] = [];
 
   
   questions$: Observable<QuestionBase<any>[]>;
@@ -69,13 +69,15 @@ export class HabilidadesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.habsService.obtenerHab().subscribe((res)=>{
-      this.habs = res.sort(((a, b)=> { 
-        return  b.porcentaje  - a.porcentaje 
-       } ))
-    })
+    // this.habsService.obtenerHab().subscribe((res)=>{
+    //   this.habs = res.sort(((a, b)=> { 
+    //     return  b.porcentaje  - a.porcentaje 
+    //    } ))
+    // })
 
-   
+  this.habs = HabilidadesLote.sort((a,b)=> {
+    return b.porcentaje - a.porcentaje
+  })
 
     let currentUser = this.auth.UserAuth;
     if (currentUser && currentUser.token){

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Proyecto } from 'src/app/proyecto';
+import  Proyecto  from 'src/app/proyecto';
 import { ProyectosService } from 'src/app/services/proyectos.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { UiServiceService } from 'src/app/services/ui/ui-service.service';
@@ -14,6 +14,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { HttpClient } from '@angular/common/http';
 import { ProyServService } from './proy-serv.service';
 import { AuthService } from 'src/app/services/auth.service';
+import {Proyectos} from '../../../proyectos.json'
 
 @Component({
   selector: 'app-proyectos',
@@ -53,7 +54,7 @@ export class ProyectosComponent implements OnInit {
 
   public imagenRepo : any;
 
-  constructor(private proyService :ProyServService ,
+  constructor(private proyService : ProyectosService ,
     private uiService: UiServiceService, 
     private service:ProyQuestionService,
     private auth:AuthService 
@@ -74,9 +75,11 @@ export class ProyectosComponent implements OnInit {
 
   ngOnInit(): void {
   
-    this.proyService.obtenerProy().subscribe((res)=>{
-      this.proys = res
-    })
+    // this.proyService.obtenerProy().subscribe((res)=>{
+    //   this.proys = res
+    // })
+    this.proys = Proyectos
+
 
     let currentUser = this.auth.UserAuth;
     if (currentUser && currentUser.token){

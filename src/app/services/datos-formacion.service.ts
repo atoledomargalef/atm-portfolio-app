@@ -1,9 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Persona } from '../persona';
-import { Experiencia } from '../experiencia';
-import { Formacion } from '../formacion';
+import  Formacion  from '../formacion';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize } from 'rxjs';
 
@@ -22,12 +20,15 @@ export class DatosFormacionService {
 
 private filePath:any;
 // private downloadURL: Observable<string>;
-private rutaApiFor = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/ver/formacion';
-private verForm = '/ver/formacion'
-private rutaApi = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io';
-private rutaApinew = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/new/formacion';
-private formDelete = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/delete/formacion';
-private formEdit = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogenius.io/editar/formacion2';
+// private rutaApiFor = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/ver/formacion';
+// private verForm = '/ver/formacion'
+// private rutaApi = 'https://atm-portfolio-api-cloud.rj.r.appspot.com';
+private rutaApinew = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/new/formacion';
+private formDelete = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/delete/formacion';
+private formEdit = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/editar/formacion2';
+
+private verForm = '/ver/formacion.json'
+private rutaApi = './mock';
 
   constructor( private http:HttpClient, private storage : AngularFireStorage) {
 
@@ -38,6 +39,7 @@ private formEdit = 'https://back-portfolio-prod-portfolio-app-13gswm.mo6.mogeniu
 
    useSelect:boolean = false
 
+  
 
   obtenerFor(){
     const url = `${this.rutaApi}${this.verForm}`

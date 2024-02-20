@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'portfolio', component:PortfolioComponent},
   {path:'login', component:LoginComponent},
   {path:'', redirectTo:'portfolio', pathMatch:'full'}
-
+  
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-export interface Persona{
+export default interface Persona{
 
     id? : number;
     nombre : string;

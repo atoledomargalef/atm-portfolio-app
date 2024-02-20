@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 
-import { Proyecto } from 'src/app/proyecto';
+import Proyecto from '../../../proyecto';
 
 import { catchError, finalize, map, retry, switchMap, throwError } from 'rxjs';
 import { Firestore } from '@angular/fire/firestore';
@@ -24,11 +24,11 @@ export class ProyServService {
  public imagenRepo : any;
 
 
-rutaApi = 'https://polar-coast-76091.herokuapp.com';
-verProy = 'https://polar-coast-76091.herokuapp.com/ver/proyectos';
-proyEdit = 'https://polar-coast-76091.herokuapp.com/editar/proyectos2';
-proyDelete = 'https://polar-coast-76091.herokuapp.com/delete/proyecto';
-newLProy = 'https://polar-coast-76091.herokuapp.com/new/proyecto';
+rutaApi = 'https://atm-portfolio-api-cloud.rj.r.appspot.com/';
+verProy = 'https://atm-portfolio-api-cloud.rj.r.appspot.com//ver/proyectos';
+proyEdit = 'https://atm-portfolio-api-cloud.rj.r.appspot.com//editar/proyectos2';
+proyDelete = 'https://atm-portfolio-api-cloud.rj.r.appspot.com//delete/proyecto';
+newLProy = 'https://atm-portfolio-api-cloud.rj.r.appspot.com//new/proyecto';
 
   constructor(private http:HttpClient) { 
 

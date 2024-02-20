@@ -1,4 +1,4 @@
-export interface Experiencia{
+export default interface Experiencia{
 
     id? : number;
     titulo : string;
